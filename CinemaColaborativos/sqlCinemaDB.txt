@@ -1,0 +1,75 @@
+
+
+CREATE TABLE usuario (
+  id_usuario INT primary key NOT NULL identity(1,1),
+  correo nVARCHAR(255) unique NOT NULL,
+  fecha_nacimiento nVARCHAR(255) NULL,
+  telefono nVARCHAR(255) NULL,
+  tipo_usuario INT NOT NULL,
+  estado bit NOT NULL,
+ );
+
+
+CREATE TABLE pelicula(
+  id_pelicula INT primary key NOT NULL identity(1,1),
+  resumen nVARCHAR(255) NOT NULL,
+  foto nvarchar(255) NOT NULL,
+  duracion nVARCHAR(45) NOT NULL,
+  genero nVARCHAR(45) NOT NULL,
+  rango_fechas nVARCHAR(255) NOT NULL
+);
+
+CREATE TABLE sala(
+  id_sala INT primary key NOT NULL identity(1,1),
+  tipo_sala VARCHAR(255) NOT NULL,
+  numero_asientos INT NOT NULL,
+  estado bit NOT NULL,
+);
+
+
+CREATE TABLE proyeccion (
+  id_proyeccion INT primary key NOT NULL identity(1,1),
+  fecha VARCHAR(45) NOT NULL,
+  hora VARCHAR(45) NOT NULL,
+  estado_proyeccion bit NULL,
+  pelicula_id_pelicula INT foreign key references pelicula(id_pelicula) NOT NULL,
+  sala_id_sala INT foreign key references sala(id_sala)  NOT NULL
+);
+
+
+CREATE TABLE reservacion(
+  id_reservacion int primary key NOT NULL identity(1,1),
+  estado_reservacion bit NOT NULL,
+  usuario_id_usuario int foreign key references usuario(id_usuario) NOT NULL,
+  proyeccion_id_proyeccion INT foreign key references proyeccion(id_proyeccion) NOT NULL,
+  proyeccion_pelicula_id_pelicula INT foreign key references pelicula (id_pelicula)NOT NULL
+);
+  
+
+
+CREATE TABLE factura(
+  id_factura INT NOT NULL primary key identity(1,1),
+  fecha nVARCHAR(255) NOT NULL,
+  monto decimal NOT NULL,
+  descripcion VARCHAR(255) NULL,
+  reservacion_id_reservacion INT foreign key references reservacion(id_reservacion) NOT NULL,
+  reservacion_usuario_id_usuario INT foreign key references usuario(id_usuario) NOT NULL
+);
+
+
+CREATE TABLE silla(
+  id_silla INT primary key NOT NULL identity(1,1),
+  sala_id_sala INT foreign key references sala(id_sala) NOT NULL
+);
+
+
+CREATE TABLE reservacion_has_silla(
+  reservacion_id_reservacion INT foreign key references reservacion(id_reservacion) NOT NULL,
+  reservacion_usuario_id_usuario INT NOT NULL,
+  reservacion_proyeccion_id_proyeccion INT NOT NULL,
+  reservacion_proyeccion_pelicula_id_pelicula INT NOT NULL,
+  silla_id_silla INT foreign key references silla(id_silla) NOT NULL,
+  silla_sala_id_sala INT NOT NULL,
+  constraint pk_reservacion_has_silla primary key (reservacion_id_reservacion,silla_id_silla,reservacion_usuario_id_usuario,reservacion_proyeccion_id_proyeccion,reservacion_proyeccion_pelicula_id_pelicula,silla_sala_id_sala)
+  );
+ 

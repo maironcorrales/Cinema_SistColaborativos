@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CinemaProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="factura">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="monto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="reservacion_id_reservacion" Type="int" Nullable="false" />
+          <Property Name="reservacion_usuario_id_usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pelicula">
+          <Key>
+            <PropertyRef Name="id_pelicula" />
+          </Key>
+          <Property Name="id_pelicula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="resumen" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="foto" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="duracion" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="genero" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="rango_fechas" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proyeccion">
+          <Key>
+            <PropertyRef Name="id_proyeccion" />
+          </Key>
+          <Property Name="id_proyeccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="hora" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="estado_proyeccion" Type="bit" />
+          <Property Name="pelicula_id_pelicula" Type="int" Nullable="false" />
+          <Property Name="sala_id_sala" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reservacion">
+          <Key>
+            <PropertyRef Name="id_reservacion" />
+          </Key>
+          <Property Name="id_reservacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado_reservacion" Type="bit" Nullable="false" />
+          <Property Name="usuario_id_usuario" Type="int" Nullable="false" />
+          <Property Name="proyeccion_id_proyeccion" Type="int" Nullable="false" />
+          <Property Name="proyeccion_pelicula_id_pelicula" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reservacion_has_silla">
+          <Key>
+            <PropertyRef Name="reservacion_id_reservacion" />
+            <PropertyRef Name="reservacion_usuario_id_usuario" />
+            <PropertyRef Name="reservacion_proyeccion_id_proyeccion" />
+            <PropertyRef Name="reservacion_proyeccion_pelicula_id_pelicula" />
+            <PropertyRef Name="silla_id_silla" />
+            <PropertyRef Name="silla_sala_id_sala" />
+          </Key>
+          <Property Name="reservacion_id_reservacion" Type="int" Nullable="false" />
+          <Property Name="reservacion_usuario_id_usuario" Type="int" Nullable="false" />
+          <Property Name="reservacion_proyeccion_id_proyeccion" Type="int" Nullable="false" />
+          <Property Name="reservacion_proyeccion_pelicula_id_pelicula" Type="int" Nullable="false" />
+          <Property Name="silla_id_silla" Type="int" Nullable="false" />
+          <Property Name="silla_sala_id_sala" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sala">
+          <Key>
+            <PropertyRef Name="id_sala" />
+          </Key>
+          <Property Name="id_sala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_sala" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="numero_asientos" Type="int" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="silla">
+          <Key>
+            <PropertyRef Name="id_silla" />
+          </Key>
+          <Property Name="id_silla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sala_id_sala" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="correo" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="nvarchar" MaxLength="255" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="255" />
+          <Property Name="tipo_usuario" Type="int" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__factura__reserva__1FCDBCEB">
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservacion">
+              <PropertyRef Name="id_reservacion" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="reservacion_id_reservacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__factura__reserva__20C1E124">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="reservacion_usuario_id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__proyeccio__pelic__173876EA">
+          <End Role="pelicula" Type="Self.pelicula" Multiplicity="1" />
+          <End Role="proyeccion" Type="Self.proyeccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pelicula">
+              <PropertyRef Name="id_pelicula" />
+            </Principal>
+            <Dependent Role="proyeccion">
+              <PropertyRef Name="pelicula_id_pelicula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__proyeccio__sala___182C9B23">
+          <End Role="sala" Type="Self.sala" Multiplicity="1" />
+          <End Role="proyeccion" Type="Self.proyeccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sala">
+              <PropertyRef Name="id_sala" />
+            </Principal>
+            <Dependent Role="proyeccion">
+              <PropertyRef Name="sala_id_sala" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__proye__1BFD2C07">
+          <End Role="proyeccion" Type="Self.proyeccion" Multiplicity="1" />
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyeccion">
+              <PropertyRef Name="id_proyeccion" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="proyeccion_id_proyeccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__proye__1CF15040">
+          <End Role="pelicula" Type="Self.pelicula" Multiplicity="1" />
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pelicula">
+              <PropertyRef Name="id_pelicula" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="proyeccion_pelicula_id_pelicula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__reser__267ABA7A">
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="1" />
+          <End Role="reservacion_has_silla" Type="Self.reservacion_has_silla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservacion">
+              <PropertyRef Name="id_reservacion" />
+            </Principal>
+            <Dependent Role="reservacion_has_silla">
+              <PropertyRef Name="reservacion_id_reservacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__silla__276EDEB3">
+          <End Role="silla" Type="Self.silla" Multiplicity="1" />
+          <End Role="reservacion_has_silla" Type="Self.reservacion_has_silla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="silla">
+              <PropertyRef Name="id_silla" />
+            </Principal>
+            <Dependent Role="reservacion_has_silla">
+              <PropertyRef Name="silla_id_silla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__usuar__1B0907CE">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="usuario_id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__silla__sala_id_s__239E4DCF">
+          <End Role="sala" Type="Self.sala" Multiplicity="1" />
+          <End Role="silla" Type="Self.silla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sala">
+              <PropertyRef Name="id_sala" />
+            </Principal>
+            <Dependent Role="silla">
+              <PropertyRef Name="sala_id_sala" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CinemaProjectModelStoreContainer">
+          <EntitySet Name="factura" EntityType="Self.factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pelicula" EntityType="Self.pelicula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proyeccion" EntityType="Self.proyeccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reservacion" EntityType="Self.reservacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reservacion_has_silla" EntityType="Self.reservacion_has_silla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sala" EntityType="Self.sala" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="silla" EntityType="Self.silla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__factura__reserva__1FCDBCEB" Association="Self.FK__factura__reserva__1FCDBCEB">
+            <End Role="reservacion" EntitySet="reservacion" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__factura__reserva__20C1E124" Association="Self.FK__factura__reserva__20C1E124">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__proyeccio__pelic__173876EA" Association="Self.FK__proyeccio__pelic__173876EA">
+            <End Role="pelicula" EntitySet="pelicula" />
+            <End Role="proyeccion" EntitySet="proyeccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__proyeccio__sala___182C9B23" Association="Self.FK__proyeccio__sala___182C9B23">
+            <End Role="sala" EntitySet="sala" />
+            <End Role="proyeccion" EntitySet="proyeccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__proye__1BFD2C07" Association="Self.FK__reservaci__proye__1BFD2C07">
+            <End Role="proyeccion" EntitySet="proyeccion" />
+            <End Role="reservacion" EntitySet="reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__proye__1CF15040" Association="Self.FK__reservaci__proye__1CF15040">
+            <End Role="pelicula" EntitySet="pelicula" />
+            <End Role="reservacion" EntitySet="reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__reser__267ABA7A" Association="Self.FK__reservaci__reser__267ABA7A">
+            <End Role="reservacion" EntitySet="reservacion" />
+            <End Role="reservacion_has_silla" EntitySet="reservacion_has_silla" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__silla__276EDEB3" Association="Self.FK__reservaci__silla__276EDEB3">
+            <End Role="silla" EntitySet="silla" />
+            <End Role="reservacion_has_silla" EntitySet="reservacion_has_silla" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__usuar__1B0907CE" Association="Self.FK__reservaci__usuar__1B0907CE">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="reservacion" EntitySet="reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__silla__sala_id_s__239E4DCF" Association="Self.FK__silla__sala_id_s__239E4DCF">
+            <End Role="sala" EntitySet="sala" />
+            <End Role="silla" EntitySet="silla" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CinemaProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="factura">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="monto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="reservacion_id_reservacion" Type="Int32" Nullable="false" />
+          <Property Name="reservacion_usuario_id_usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="reservacion" Relationship="Self.FK__factura__reserva__1FCDBCEB" FromRole="factura" ToRole="reservacion" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK__factura__reserva__20C1E124" FromRole="factura" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="pelicula">
+          <Key>
+            <PropertyRef Name="id_pelicula" />
+          </Key>
+          <Property Name="id_pelicula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="resumen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="foto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="duracion" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="genero" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rango_fechas" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="proyeccion" Relationship="Self.FK__proyeccio__pelic__173876EA" FromRole="pelicula" ToRole="proyeccion" />
+          <NavigationProperty Name="reservacion" Relationship="Self.FK__reservaci__proye__1CF15040" FromRole="pelicula" ToRole="reservacion" />
+        </EntityType>
+        <EntityType Name="proyeccion">
+          <Key>
+            <PropertyRef Name="id_proyeccion" />
+          </Key>
+          <Property Name="id_proyeccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hora" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado_proyeccion" Type="Boolean" />
+          <Property Name="pelicula_id_pelicula" Type="Int32" Nullable="false" />
+          <Property Name="sala_id_sala" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pelicula" Relationship="Self.FK__proyeccio__pelic__173876EA" FromRole="proyeccion" ToRole="pelicula" />
+          <NavigationProperty Name="sala" Relationship="Self.FK__proyeccio__sala___182C9B23" FromRole="proyeccion" ToRole="sala" />
+          <NavigationProperty Name="reservacion" Relationship="Self.FK__reservaci__proye__1BFD2C07" FromRole="proyeccion" ToRole="reservacion" />
+        </EntityType>
+        <EntityType Name="reservacion">
+          <Key>
+            <PropertyRef Name="id_reservacion" />
+          </Key>
+          <Property Name="id_reservacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado_reservacion" Type="Boolean" Nullable="false" />
+          <Property Name="usuario_id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="proyeccion_id_proyeccion" Type="Int32" Nullable="false" />
+          <Property Name="proyeccion_pelicula_id_pelicula" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="factura" Relationship="Self.FK__factura__reserva__1FCDBCEB" FromRole="reservacion" ToRole="factura" />
+          <NavigationProperty Name="pelicula" Relationship="Self.FK__reservaci__proye__1CF15040" FromRole="reservacion" ToRole="pelicula" />
+          <NavigationProperty Name="proyeccion" Relationship="Self.FK__reservaci__proye__1BFD2C07" FromRole="reservacion" ToRole="proyeccion" />
+          <NavigationProperty Name="reservacion_has_silla" Relationship="Self.FK__reservaci__reser__267ABA7A" FromRole="reservacion" ToRole="reservacion_has_silla" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK__reservaci__usuar__1B0907CE" FromRole="reservacion" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="reservacion_has_silla">
+          <Key>
+            <PropertyRef Name="reservacion_id_reservacion" />
+            <PropertyRef Name="reservacion_usuario_id_usuario" />
+            <PropertyRef Name="reservacion_proyeccion_id_proyeccion" />
+            <PropertyRef Name="reservacion_proyeccion_pelicula_id_pelicula" />
+            <PropertyRef Name="silla_id_silla" />
+            <PropertyRef Name="silla_sala_id_sala" />
+          </Key>
+          <Property Name="reservacion_id_reservacion" Type="Int32" Nullable="false" />
+          <Property Name="reservacion_usuario_id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="reservacion_proyeccion_id_proyeccion" Type="Int32" Nullable="false" />
+          <Property Name="reservacion_proyeccion_pelicula_id_pelicula" Type="Int32" Nullable="false" />
+          <Property Name="silla_id_silla" Type="Int32" Nullable="false" />
+          <Property Name="silla_sala_id_sala" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="reservacion" Relationship="Self.FK__reservaci__reser__267ABA7A" FromRole="reservacion_has_silla" ToRole="reservacion" />
+          <NavigationProperty Name="silla" Relationship="Self.FK__reservaci__silla__276EDEB3" FromRole="reservacion_has_silla" ToRole="silla" />
+        </EntityType>
+        <EntityType Name="sala">
+          <Key>
+            <PropertyRef Name="id_sala" />
+          </Key>
+          <Property Name="id_sala" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_sala" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="numero_asientos" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="proyeccion" Relationship="Self.FK__proyeccio__sala___182C9B23" FromRole="sala" ToRole="proyeccion" />
+          <NavigationProperty Name="silla" Relationship="Self.FK__silla__sala_id_s__239E4DCF" FromRole="sala" ToRole="silla" />
+        </EntityType>
+        <EntityType Name="silla">
+          <Key>
+            <PropertyRef Name="id_silla" />
+          </Key>
+          <Property Name="id_silla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sala_id_sala" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="reservacion_has_silla" Relationship="Self.FK__reservaci__silla__276EDEB3" FromRole="silla" ToRole="reservacion_has_silla" />
+          <NavigationProperty Name="sala" Relationship="Self.FK__silla__sala_id_s__239E4DCF" FromRole="silla" ToRole="sala" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="correo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_usuario" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="factura" Relationship="Self.FK__factura__reserva__20C1E124" FromRole="usuario" ToRole="factura" />
+          <NavigationProperty Name="reservacion" Relationship="Self.FK__reservaci__usuar__1B0907CE" FromRole="usuario" ToRole="reservacion" />
+        </EntityType>
+        <Association Name="FK__factura__reserva__1FCDBCEB">
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservacion">
+              <PropertyRef Name="id_reservacion" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="reservacion_id_reservacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__factura__reserva__20C1E124">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="reservacion_usuario_id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__proyeccio__pelic__173876EA">
+          <End Role="pelicula" Type="Self.pelicula" Multiplicity="1" />
+          <End Role="proyeccion" Type="Self.proyeccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pelicula">
+              <PropertyRef Name="id_pelicula" />
+            </Principal>
+            <Dependent Role="proyeccion">
+              <PropertyRef Name="pelicula_id_pelicula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__proye__1CF15040">
+          <End Role="pelicula" Type="Self.pelicula" Multiplicity="1" />
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pelicula">
+              <PropertyRef Name="id_pelicula" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="proyeccion_pelicula_id_pelicula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__proyeccio__sala___182C9B23">
+          <End Role="sala" Type="Self.sala" Multiplicity="1" />
+          <End Role="proyeccion" Type="Self.proyeccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sala">
+              <PropertyRef Name="id_sala" />
+            </Principal>
+            <Dependent Role="proyeccion">
+              <PropertyRef Name="sala_id_sala" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__proye__1BFD2C07">
+          <End Role="proyeccion" Type="Self.proyeccion" Multiplicity="1" />
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyeccion">
+              <PropertyRef Name="id_proyeccion" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="proyeccion_id_proyeccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__reser__267ABA7A">
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="1" />
+          <End Role="reservacion_has_silla" Type="Self.reservacion_has_silla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservacion">
+              <PropertyRef Name="id_reservacion" />
+            </Principal>
+            <Dependent Role="reservacion_has_silla">
+              <PropertyRef Name="reservacion_id_reservacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__usuar__1B0907CE">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="reservacion" Type="Self.reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="reservacion">
+              <PropertyRef Name="usuario_id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaci__silla__276EDEB3">
+          <End Role="silla" Type="Self.silla" Multiplicity="1" />
+          <End Role="reservacion_has_silla" Type="Self.reservacion_has_silla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="silla">
+              <PropertyRef Name="id_silla" />
+            </Principal>
+            <Dependent Role="reservacion_has_silla">
+              <PropertyRef Name="silla_id_silla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__silla__sala_id_s__239E4DCF">
+          <End Role="sala" Type="Self.sala" Multiplicity="1" />
+          <End Role="silla" Type="Self.silla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sala">
+              <PropertyRef Name="id_sala" />
+            </Principal>
+            <Dependent Role="silla">
+              <PropertyRef Name="sala_id_sala" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CinemaProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="factura" EntityType="Self.factura" />
+          <EntitySet Name="pelicula" EntityType="Self.pelicula" />
+          <EntitySet Name="proyeccion" EntityType="Self.proyeccion" />
+          <EntitySet Name="reservacion" EntityType="Self.reservacion" />
+          <EntitySet Name="reservacion_has_silla" EntityType="Self.reservacion_has_silla" />
+          <EntitySet Name="sala" EntityType="Self.sala" />
+          <EntitySet Name="silla" EntityType="Self.silla" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <AssociationSet Name="FK__factura__reserva__1FCDBCEB" Association="Self.FK__factura__reserva__1FCDBCEB">
+            <End Role="reservacion" EntitySet="reservacion" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__factura__reserva__20C1E124" Association="Self.FK__factura__reserva__20C1E124">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__proyeccio__pelic__173876EA" Association="Self.FK__proyeccio__pelic__173876EA">
+            <End Role="pelicula" EntitySet="pelicula" />
+            <End Role="proyeccion" EntitySet="proyeccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__proye__1CF15040" Association="Self.FK__reservaci__proye__1CF15040">
+            <End Role="pelicula" EntitySet="pelicula" />
+            <End Role="reservacion" EntitySet="reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__proyeccio__sala___182C9B23" Association="Self.FK__proyeccio__sala___182C9B23">
+            <End Role="sala" EntitySet="sala" />
+            <End Role="proyeccion" EntitySet="proyeccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__proye__1BFD2C07" Association="Self.FK__reservaci__proye__1BFD2C07">
+            <End Role="proyeccion" EntitySet="proyeccion" />
+            <End Role="reservacion" EntitySet="reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__reser__267ABA7A" Association="Self.FK__reservaci__reser__267ABA7A">
+            <End Role="reservacion" EntitySet="reservacion" />
+            <End Role="reservacion_has_silla" EntitySet="reservacion_has_silla" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__usuar__1B0907CE" Association="Self.FK__reservaci__usuar__1B0907CE">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="reservacion" EntitySet="reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaci__silla__276EDEB3" Association="Self.FK__reservaci__silla__276EDEB3">
+            <End Role="silla" EntitySet="silla" />
+            <End Role="reservacion_has_silla" EntitySet="reservacion_has_silla" />
+          </AssociationSet>
+          <AssociationSet Name="FK__silla__sala_id_s__239E4DCF" Association="Self.FK__silla__sala_id_s__239E4DCF">
+            <End Role="sala" EntitySet="sala" />
+            <End Role="silla" EntitySet="silla" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CinemaProjectModelStoreContainer" CdmEntityContainer="CinemaProjectEntities">
+          <EntitySetMapping Name="factura">
+            <EntityTypeMapping TypeName="CinemaProjectModel.factura">
+              <MappingFragment StoreEntitySet="factura">
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="reservacion_id_reservacion" ColumnName="reservacion_id_reservacion" />
+                <ScalarProperty Name="reservacion_usuario_id_usuario" ColumnName="reservacion_usuario_id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pelicula">
+            <EntityTypeMapping TypeName="CinemaProjectModel.pelicula">
+              <MappingFragment StoreEntitySet="pelicula">
+                <ScalarProperty Name="id_pelicula" ColumnName="id_pelicula" />
+                <ScalarProperty Name="resumen" ColumnName="resumen" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="duracion" ColumnName="duracion" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="rango_fechas" ColumnName="rango_fechas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proyeccion">
+            <EntityTypeMapping TypeName="CinemaProjectModel.proyeccion">
+              <MappingFragment StoreEntitySet="proyeccion">
+                <ScalarProperty Name="id_proyeccion" ColumnName="id_proyeccion" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="estado_proyeccion" ColumnName="estado_proyeccion" />
+                <ScalarProperty Name="pelicula_id_pelicula" ColumnName="pelicula_id_pelicula" />
+                <ScalarProperty Name="sala_id_sala" ColumnName="sala_id_sala" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservacion">
+            <EntityTypeMapping TypeName="CinemaProjectModel.reservacion">
+              <MappingFragment StoreEntitySet="reservacion">
+                <ScalarProperty Name="id_reservacion" ColumnName="id_reservacion" />
+                <ScalarProperty Name="estado_reservacion" ColumnName="estado_reservacion" />
+                <ScalarProperty Name="usuario_id_usuario" ColumnName="usuario_id_usuario" />
+                <ScalarProperty Name="proyeccion_id_proyeccion" ColumnName="proyeccion_id_proyeccion" />
+                <ScalarProperty Name="proyeccion_pelicula_id_pelicula" ColumnName="proyeccion_pelicula_id_pelicula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservacion_has_silla">
+            <EntityTypeMapping TypeName="CinemaProjectModel.reservacion_has_silla">
+              <MappingFragment StoreEntitySet="reservacion_has_silla">
+                <ScalarProperty Name="reservacion_id_reservacion" ColumnName="reservacion_id_reservacion" />
+                <ScalarProperty Name="reservacion_usuario_id_usuario" ColumnName="reservacion_usuario_id_usuario" />
+                <ScalarProperty Name="reservacion_proyeccion_id_proyeccion" ColumnName="reservacion_proyeccion_id_proyeccion" />
+                <ScalarProperty Name="reservacion_proyeccion_pelicula_id_pelicula" ColumnName="reservacion_proyeccion_pelicula_id_pelicula" />
+                <ScalarProperty Name="silla_id_silla" ColumnName="silla_id_silla" />
+                <ScalarProperty Name="silla_sala_id_sala" ColumnName="silla_sala_id_sala" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sala">
+            <EntityTypeMapping TypeName="CinemaProjectModel.sala">
+              <MappingFragment StoreEntitySet="sala">
+                <ScalarProperty Name="id_sala" ColumnName="id_sala" />
+                <ScalarProperty Name="tipo_sala" ColumnName="tipo_sala" />
+                <ScalarProperty Name="numero_asientos" ColumnName="numero_asientos" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="silla">
+            <EntityTypeMapping TypeName="CinemaProjectModel.silla">
+              <MappingFragment StoreEntitySet="silla">
+                <ScalarProperty Name="id_silla" ColumnName="id_silla" />
+                <ScalarProperty Name="sala_id_sala" ColumnName="sala_id_sala" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="CinemaProjectModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
