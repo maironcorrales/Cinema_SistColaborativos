@@ -6,20 +6,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">
-			<div class="top-header">
-				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" alt="" /></a>
-					<p>Movie Theater</p>
-				</div>
-				<div class="search">
-					<form>
-						<input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
-						<input type="submit" value="">
-					</form>
-				</div>
-				<div class="clearfix"></div>
-			</div>
+    <div class="header">	
 			<div class="header-info">
 				<h1>BIG HERO 6</h1>
 				<p class="age"><a href="#">All Age</a> Don Hall, Chris Williams</p>

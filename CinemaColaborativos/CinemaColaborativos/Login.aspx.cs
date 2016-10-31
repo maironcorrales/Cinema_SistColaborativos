@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace CinemaColaborativos
 {
@@ -11,7 +7,8 @@ namespace CinemaColaborativos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            fbLogin.NavigateUrl = "https://www.facebook.com/v2.8/dialog/oauth/?client_id=" + ConfigurationManager.AppSettings["FacebookAppId"] + "&redirect_uri=http://" + Request.ServerVariables["SERVER_NAME"] + ":" + Request.ServerVariables["SERVER_PORT"] + "/Home.aspx&response_type=code&state=1&scope=email";
+            
         }
     }
 }

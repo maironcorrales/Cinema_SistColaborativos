@@ -91,6 +91,7 @@
       <LastGenOutput>CinemaProjectModel.cs</LastGenOutput>
     </Content>
     <Content Include="Home.aspx" />
+    <Content Include="images\facebookbtn.png" />
     <Content Include="Login.aspx" />
     <Content Include="MovieImages\capamerica.jpg" />
     <Content Include="MovieImages\deadpool.jpg" />
@@ -162,6 +163,8 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\FacebookUser.cs" />
+    <Compile Include="Models\ModelUser.cs" />
     <Compile Include="pelicula.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>
     </Compile>
@@ -195,9 +198,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="css\" />
-    <Folder Include="images\" />
     <Folder Include="js\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

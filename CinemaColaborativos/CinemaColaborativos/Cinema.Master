@@ -35,6 +35,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			</div>
 		<div class="main">
+            <div class="top-header span_top">
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" alt="" /></a>
+					<p>Movie Theater</p>
+				</div>
+				<div class="search v-search">
+					<p runat="server" id="username"></p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
 		
 		
     <form id="form1" runat="server">
