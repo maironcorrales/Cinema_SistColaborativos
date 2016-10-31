@@ -27,6 +27,7 @@ namespace CinemaColaborativos
         public string duracion { get; set; }
         public string genero { get; set; }
         public string rango_fechas { get; set; }
+        public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<proyeccion> proyeccion { get; set; }

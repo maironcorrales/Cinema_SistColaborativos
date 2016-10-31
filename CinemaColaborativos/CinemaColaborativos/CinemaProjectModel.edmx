@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CinemaProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CinemaProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="factura">
           <Key>
             <PropertyRef Name="id_factura" />
@@ -26,6 +26,7 @@
           <Property Name="duracion" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="genero" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="rango_fechas" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="proyeccion">
           <Key>
@@ -261,8 +262,7 @@
             <End Role="silla" EntitySet="silla" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CinemaProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -291,6 +291,7 @@
           <Property Name="rango_fechas" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="proyeccion" Relationship="Self.FK__proyeccio__pelic__173876EA" FromRole="pelicula" ToRole="proyeccion" />
           <NavigationProperty Name="reservacion" Relationship="Self.FK__reservaci__proye__1CF15040" FromRole="pelicula" ToRole="reservacion" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="proyeccion">
           <Key>
@@ -563,6 +564,7 @@
           <EntitySetMapping Name="pelicula">
             <EntityTypeMapping TypeName="CinemaProjectModel.pelicula">
               <MappingFragment StoreEntitySet="pelicula">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="id_pelicula" ColumnName="id_pelicula" />
                 <ScalarProperty Name="resumen" ColumnName="resumen" />
                 <ScalarProperty Name="foto" ColumnName="foto" />

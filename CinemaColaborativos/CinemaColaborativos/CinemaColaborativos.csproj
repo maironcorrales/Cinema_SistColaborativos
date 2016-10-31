@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=16.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.16.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -87,6 +91,11 @@
       <LastGenOutput>CinemaProjectModel.cs</LastGenOutput>
     </Content>
     <Content Include="Home.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="MovieImages\capamerica.jpg" />
+    <Content Include="MovieImages\deadpool.jpg" />
+    <Content Include="MovieImages\iron-man.jpg" />
+    <Content Include="MovieImages\superman.jpg" />
     <Content Include="packages.config" />
     <EntityDeploy Include="CinemaProjectModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -105,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Projection.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -145,8 +155,22 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pelicula.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Projection.aspx.cs">
+      <DependentUpon>Projection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Projection.aspx.designer.cs">
+      <DependentUpon>Projection.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="proyeccion.cs">
@@ -174,7 +198,6 @@
     <Folder Include="images\" />
     <Folder Include="js\" />
     <Folder Include="Models\" />
-    <Folder Include="MovieImages\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

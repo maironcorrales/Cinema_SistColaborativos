@@ -1,7 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cinema.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CinemaColaborativos.Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cinema.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CinemaColaborativos.Home" EnableEventValidation="false" ValidateRequest="false"%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">
 			<div class="top-header">
@@ -66,76 +69,59 @@
 		</script>
 		<script type="text/javascript" src="js/jquery.flexisel.js"></script>	
 		</div>
-		<div class="video">
-			<iframe  src="https://www.youtube.com/embed/2LqzF5WauAw" frameborder="0" allowfullscreen></iframe>
-		</div>
-		<div class="news">
-			<div class="col-md-6 news-left-grid">
-				<h3>Don’t be late,</h3>
-				<h2>Book your ticket now!</h2>
-				<h4>Easy, simple & fast.</h4>
-				<a href="#"><i class="book"></i>BOOK TICKET</a>
-				<p>Get Discount up to <strong>10%</strong> if you are a member!</p>
-			</div>
-			<div class="col-md-6 news-right-grid">
-				<h3>News</h3>
-				<div class="news-grid">
-					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<label>Nov 11 2014</label>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+    <div class="right-content">
+				<div class="right-content-heading">
+					<div class="right-content-heading-left">
+						<h3 class="head">Cartelera</h3>
+					</div>
 				</div>
-				<div class="news-grid">
-					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<label>Nov 11 2014</label>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+				<div class="content-grids">
+                     <asp:Repeater runat ="server" ID="TodaysMovieRepeater" OnItemDataBound="TodaysMovieRepeater_ItemDataBound" OnItemCommand="TodaysMovieRepeater_ItemCommand">
+                            <ItemTemplate>
+                                <div class="content-grid" runat="server" id="movieDiv">
+                                    <asp:HiddenField runat="server" ID="movieID" />
+                                    <img runat="server" id="movieImage" />
+                                    <h3 runat="server" id="name"></h3>
+                                    <h3 runat="server" id="resume"></h3>
+                                    <asp:LinkButton CssClass="button play-icon popup-with-zoom-anim" runat="server" ID="buyTicket" CommandName="Book" Text="Comprar Tiquetes"></asp:LinkButton>
+                                    <asp:Button ID="processbtn" runat="server" Style="visibility:hidden"/>
+                                    <asp:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
+                                            CancelControlID="btnCancel"
+                                            TargetControlID="processbtn"
+                                            PopupControlID="Panel1"
+                                            Drag="true"
+                                            BackgroundCssClass="modalBackground">
+                                     </asp:ModalPopupExtender>
+                                </div>
+                             </ItemTemplate>
+                        </asp:Repeater>
+                    	 <asp:Panel ID="Panel1" Style="display: none" CssClass="modalPopup" align="center" runat="server">
+                            <p runat="server" id="message"></p><a runat="server" id="link"></a>
+                                <div class="clearfix"> </div>
+                                <input class="button play-icon popup-with-zoom-anim" id="btnCancel" type="button" value="Aceptar" />
+                            </asp:Panel>
+                    	
+					<div class="clearfix"> </div>
 				</div>
-				<a class="more" href="#">MORE</a>
 			</div>
-			<div class="clearfix"></div>
-		</div>
-		<div class="more-reviews">
-			 <ul id="flexiselDemo2">
-			<li><img src="images/m1.jpg" alt=""/></li>
-			<li><img src="images/m2.jpg" alt=""/></li>
-			<li><img src="images/m3.jpg" alt=""/></li>
-			<li><img src="images/m4.jpg" alt=""/></li>
-		</ul>
-			<script type="text/javascript">
-		$(window).load(function() {
-			
-		  $("#flexiselDemo2").flexisel({
-				visibleItems: 4,
-				animationSpeed: 1000,
-				autoPlay: true,
-				autoPlaySpeed: 3000,    		
-				pauseOnHover: false,
-				enableResponsiveBreakpoints: true,
-				responsiveBreakpoints: { 
-					portrait: { 
-						changePoint:480,
-						visibleItems: 2
-					}, 
-					landscape: { 
-						changePoint:640,
-						visibleItems: 3
-					},
-					tablet: { 
-						changePoint:768,
-						visibleItems: 3
-					}
-				}
-			});
-			});
-		</script>
-		<script type="text/javascript" src="js/jquery.flexisel.js"></script>	
-		</div>	
-	<div class="footer">
-		<h6>Disclaimer : </h6>
-		<p class="claim">This is a freebies and not an official website, I have no intention of disclose any movie, brand, news.My goal here is to train or excercise my skill and share this freebies.</p>
-		<a href="example@mail.com">example@mail.com</a>
-		<div class="copyright">
-			<p> Template by  <a href="http://w3layouts.com">  W3layouts</a></p>
-		</div>
-	</div>
-	<div class="clearfix"></div>
+   
+	<style type="text/css">
+            .modalBackground {
+                background-color: Black;
+                filter: alpha(opacity=90);
+                opacity: 0.8;
+            }
+
+            .modalPopup {
+                background-color: #FFFFFF;
+                border-width: 3px;
+                border-style: solid;
+                border-color: black;
+                padding-top: 10px;
+                padding-left: 10px;
+                width: 300px;
+                height: 160px;
+            }
+        </style>
 </asp:Content>

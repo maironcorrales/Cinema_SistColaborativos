@@ -27,24 +27,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="full">
 			<div class="menu">
 				<ul>
-					<li><a class="active" href="index.html"><i class="home"></i></a></li>
+					<li><a class="active" href="Home.aspx"><i class="home"></i></a></li>
 					<li><a href="videos.html"><div class="video"><i class="videos"></i><i class="videos1"></i></div></a></li>
 					<li><a href="reviews.html"><div class="cat"><i class="watching"></i><i class="watching1"></i></div></a></li>
-					<li><a href="404.html"><div class="bk"><i class="booking"></i><i class="booking1"></i></div></a></li>
+					<li><a href="Login.aspx"><div class="bk"><i class="booking"></i><i class="booking1"></i></div></a></li>
 					<li><a href="contact.html"><div class="cnt"><i class="contact"></i><i class="contact1"></i></div></a></li>
 				</ul>
 			</div>
 		<div class="main">
-		<div class="main">
+		
 		
     <form id="form1" runat="server">
+        
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             
         </asp:ContentPlaceHolder>
     </div>
     </form>
-            </div>
+            
+	<div class="clearfix"></div>
+
+            
+            <div class="footer">
+		<h6>CinemaXXI</h6>
+		<p class="claim">Cinema XXI. Siguenos en <a href="facebook.com">Facebook</a> y ve nuestras novedades</p>
+		<a href="example@mail.com">También puedes escribirnos a cinema21@gmail.com</a>
+		<div class="copyright">
+		</div>
+	</div>
             </div>
         </div>
     
