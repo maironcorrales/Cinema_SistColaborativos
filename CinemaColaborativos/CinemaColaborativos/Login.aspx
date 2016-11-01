@@ -17,7 +17,10 @@
                      </asp:HyperLink>
                      
                      <br />
-                     google
+                     <a href="#" id="A1" onclick="OpenGoogleLoginPopup();" name="butrequest"> 
+                         <img src="images/GoogleSignIn.png" style="width:48%;height:54%; padding-left:15px"/>
+                     </a>
+                         
 				  </div>
 				  <div class="col-md-6 contact-right">
 					 
@@ -29,4 +32,22 @@
 	 </div>
 </div>
         </div>
+    <script type="text/javascript">
+
+
+        function OpenGoogleLoginPopup() {
+            
+
+            var url = "https://accounts.google.com/o/oauth2/auth?";
+            url += "scope=https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email&";
+            url += "state=%2Fprofile&"
+            url += "redirect_uri=<%=Return_url %>&"
+            url += "response_type=token&"
+            url += "client_id=<%=Client_ID %>";
+
+            window.location = url;
+        }
+
+
+    </script>
 </asp:Content>

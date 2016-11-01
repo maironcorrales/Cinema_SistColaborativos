@@ -92,7 +92,9 @@
     </Content>
     <Content Include="Home.aspx" />
     <Content Include="images\facebookbtn.png" />
+    <Content Include="images\GoogleSignIn.png" />
     <Content Include="Login.aspx" />
+    <Content Include="LoginWithGoogle1.aspx" />
     <Content Include="MovieImages\capamerica.jpg" />
     <Content Include="MovieImages\deadpool.jpg" />
     <Content Include="MovieImages\iron-man.jpg" />
@@ -162,6 +164,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWithGoogle1.aspx.cs">
+      <DependentUpon>LoginWithGoogle1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginWithGoogle1.aspx.designer.cs">
+      <DependentUpon>LoginWithGoogle1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\FacebookUser.cs" />
     <Compile Include="Models\ModelUser.cs" />

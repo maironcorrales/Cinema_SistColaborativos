@@ -34,7 +34,6 @@ namespace CinemaColaborativos
                     {
                         userBusiness.Createuser(obj.ElementAt(0).email, obj.ElementAt(0).birthday, obj.ElementAt(0).phone);
                         Session["USER"] = userBusiness.loginUser(obj.ElementAt(0).email);
-                        Request.QueryString["code"] = null;
                     }
                     else
                     {
