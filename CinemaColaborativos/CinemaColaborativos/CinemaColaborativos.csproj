@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\MovieBusiness.cs" />
+    <Compile Include="Business\ProjectionBusiness.cs" />
     <Compile Include="Business\UserBusiness.cs" />
     <Compile Include="Cinema.Master.cs">
       <DependentUpon>Cinema.Master</DependentUpon>

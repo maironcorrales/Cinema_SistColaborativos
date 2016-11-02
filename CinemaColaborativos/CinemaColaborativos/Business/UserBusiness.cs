@@ -1,8 +1,4 @@
-﻿using CinemaColaborativos.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 
 namespace CinemaColaborativos.Business
 {

@@ -56,8 +56,6 @@ namespace CinemaColaborativos
                 img.Attributes.Add("src", movieList.ElementAt(i).foto);
                 HtmlGenericControl name = (HtmlGenericControl)e.Item.FindControl("name");
                 name.InnerText = movieList.ElementAt(i).nombre;
-                HtmlGenericControl resume = (HtmlGenericControl)e.Item.FindControl("resume");
-                resume.InnerText = movieList.ElementAt(i).resumen;
                 HiddenField id = (HiddenField)e.Item.FindControl("movieID");
                 id.Value = movieList.ElementAt(i).id_pelicula.ToString();
             }

@@ -70,7 +70,6 @@
                                     <asp:HiddenField runat="server" ID="movieID" />
                                     <img runat="server" id="movieImage" />
                                     <h3 runat="server" id="name"></h3>
-                                    <h3 runat="server" id="resume"></h3>
                                     <asp:LinkButton CssClass="button play-icon popup-with-zoom-anim" runat="server" ID="buyTicket" CommandName="Book" Text="Comprar Tiquetes"></asp:LinkButton>
                                     <asp:Button ID="processbtn" runat="server" Style="visibility:hidden"/>
                                     <asp:ModalPopupExtender ID="ModalPopupExtender1" runat="server"

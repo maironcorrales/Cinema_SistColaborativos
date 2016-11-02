@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace CinemaColaborativos.Business
 {
@@ -14,6 +12,11 @@ namespace CinemaColaborativos.Business
             List<pelicula> movieList = new List<pelicula>();
             movieList = movieContext.pelicula.ToList();
             return movieList;
+        }
+
+        public pelicula GetMovieByID(int movieID)
+        {
+            return movieContext.pelicula.Where(m => m.id_pelicula == movieID).FirstOrDefault();
         }
     }
 }
