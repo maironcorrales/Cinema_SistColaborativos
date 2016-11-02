@@ -80,6 +80,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Checkout.aspx" />
     <Content Include="CinemaProjectModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
@@ -91,6 +92,7 @@
       <LastGenOutput>CinemaProjectModel.cs</LastGenOutput>
     </Content>
     <Content Include="Home.aspx" />
+    <Content Include="images\creditcards.jpg" />
     <Content Include="images\facebookbtn.png" />
     <Content Include="images\GoogleSignIn.png" />
     <Content Include="Login.aspx" />
@@ -124,6 +126,13 @@
     <Compile Include="Business\MovieBusiness.cs" />
     <Compile Include="Business\ProjectionBusiness.cs" />
     <Compile Include="Business\UserBusiness.cs" />
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cinema.Master.cs">
       <DependentUpon>Cinema.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
