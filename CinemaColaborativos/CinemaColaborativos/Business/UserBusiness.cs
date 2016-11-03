@@ -25,5 +25,15 @@ namespace CinemaColaborativos.Business
             else
                 return null;
         }
+
+        public bool CheckUserType(usuario user)
+        {
+            if (user.tipo_usuario == 0)
+                return true;
+            else
+                return false;
+        }
+
+        
     }
 }

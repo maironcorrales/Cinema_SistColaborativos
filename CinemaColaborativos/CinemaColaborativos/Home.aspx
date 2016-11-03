@@ -62,7 +62,7 @@
 						<h3 class="head">Cartelera</h3>
 					</div>
 				</div>
-                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+               
 				<div class="content-grids">
                      <asp:Repeater runat ="server" ID="TodaysMovieRepeater" OnItemDataBound="TodaysMovieRepeater_ItemDataBound" OnItemCommand="TodaysMovieRepeater_ItemCommand">
                             <ItemTemplate>
