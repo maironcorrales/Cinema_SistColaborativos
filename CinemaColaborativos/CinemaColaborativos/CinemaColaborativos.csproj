@@ -94,8 +94,10 @@
     </Content>
     <Content Include="Home.aspx" />
     <Content Include="images\creditcards.jpg" />
+    <Content Include="images\encuesta.png" />
     <Content Include="images\facebookbtn.png" />
     <Content Include="images\GoogleSignIn.png" />
+    <Content Include="images\users.png" />
     <Content Include="Login.aspx" />
     <Content Include="LoginWithGoogle1.aspx" />
     <Content Include="MovieImages\capamerica.jpg" />

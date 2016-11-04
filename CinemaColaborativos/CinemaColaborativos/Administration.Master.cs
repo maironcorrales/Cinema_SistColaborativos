@@ -11,7 +11,11 @@ namespace CinemaColaborativos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["USER"] != null)
+            {
+                usuario user = (usuario)Session["USER"];
+                username.InnerText = user.correo + "!";
+            }
         }
     }
 }
