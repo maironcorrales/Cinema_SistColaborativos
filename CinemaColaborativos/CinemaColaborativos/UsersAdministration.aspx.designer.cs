@@ -10,70 +10,97 @@
 namespace CinemaColaborativos {
     
     
-    public partial class Projection {
+    public partial class UsersAdministration {
         
         /// <summary>
-        /// movieName control.
+        /// mail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl movieName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText mail;
         
         /// <summary>
-        /// movieImg control.
+        /// phonenumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage movieImg;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText phonenumber;
         
         /// <summary>
-        /// description control.
+        /// CreateUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl description;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor CreateUser;
         
         /// <summary>
-        /// gender control.
+        /// processbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gender;
+        protected global::System.Web.UI.WebControls.Button processbtn;
         
         /// <summary>
-        /// duration control.
+        /// MailToEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl duration;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText MailToEdit;
         
         /// <summary>
-        /// dates control.
+        /// PhoneToEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dates;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText PhoneToEdit;
         
         /// <summary>
-        /// ProjectionRepeater control.
+        /// SaveUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ProjectionRepeater;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor SaveUser;
+        
+        /// <summary>
+        /// saveProcessBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button saveProcessBtn;
+        
+        /// <summary>
+        /// ModalPopupExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender1;
+        
+        /// <summary>
+        /// ModalPopupExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender2;
         
         /// <summary>
         /// Panel1 control.
@@ -94,48 +121,12 @@ namespace CinemaColaborativos {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl message;
         
         /// <summary>
-        /// ticketQuantity control.
+        /// AdminUserRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl ticketQuantity;
-        
-        /// <summary>
-        /// AcepptTicketBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton AcepptTicketBtn;
-        
-        /// <summary>
-        /// Panel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
-        
-        /// <summary>
-        /// sorryMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sorryMessage;
-        
-        /// <summary>
-        /// link control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor link;
+        protected global::System.Web.UI.WebControls.Repeater AdminUserRepeater;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CinemaColaborativos.Business
 {
@@ -15,6 +16,21 @@ namespace CinemaColaborativos.Business
             user.fecha_nacimiento = birthday;
             DbContext.usuario.Add(user);
             DbContext.SaveChanges();   
+        }
+
+        public bool CreateAdministratorUser(string mail, string birthday, string phone)
+        {
+            usuario user = new usuario();
+            user.correo = mail;
+            user.estado = true;
+            user.telefono = phone;
+            user.tipo_usuario = 0;
+            user.fecha_nacimiento = birthday;
+            DbContext.usuario.Add(user);
+            if (DbContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
         }
 
         public usuario loginUser(string mail)
@@ -34,6 +50,49 @@ namespace CinemaColaborativos.Business
                 return false;
         }
 
+        public List<usuario> GetAllAdmnistrators()
+        {
+            List<usuario> adminList = new List<usuario>();
+            adminList = DbContext.usuario.Where(u => u.tipo_usuario == 0).ToList();
+            return adminList;
+        }
+
+        public bool updateUser(usuario user)
+        {
+            var result = DbContext.usuario.FirstOrDefault(u => u.id_usuario == user.id_usuario);
+            if (result != null)
+            {
+                result.correo = user.correo;
+                result.estado = user.estado;
+                result.fecha_nacimiento = user.fecha_nacimiento;
+                result.telefono = user.telefono;
+                result.tipo_usuario = user.tipo_usuario;
+            }
+            if (DbContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
+        }
+
+        public bool UpdateMailAndPhonenumber(string phone, string mail, int id)
+        {
+            var result = DbContext.usuario.FirstOrDefault(u => u.id_usuario == id);
+            if (result != null)
+            {
+                result.correo = mail;
+                result.telefono = phone;
+            }
+            if (DbContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;       
+        }
+
+        public usuario GetUpdatedUser(int id)
+        {
+            usuario user = DbContext.usuario.FirstOrDefault(u => u.id_usuario == id);
+            return user;
+        }
         
     }
 }

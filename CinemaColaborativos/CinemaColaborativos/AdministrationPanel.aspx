@@ -10,13 +10,13 @@
 		 <h3 class="head">Opciones de Administración</h3>
 		 <div class="contact-form">
 				 <div class="col-md-6 contact-left">
-                     <a href="UsersAdministration.apsx">
+                     <a href="UsersAdministration.aspx">
                         <img src="images/users.png" style="width:15%;height:15%;"/> <br />
                          Administradores
                      </a>
                      <br />
                      <br />
-                     <a href="Report.apsx">
+                     <a href="Report.aspx">
                         <img src="images/encuesta.png" style="width:15%;height:15%;"/><br />
                          Reportes
                      </a>

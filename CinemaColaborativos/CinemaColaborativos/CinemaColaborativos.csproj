@@ -92,6 +92,7 @@
       <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
       <LastGenOutput>CinemaProjectModel.cs</LastGenOutput>
     </Content>
+    <Content Include="css\tableStyle.css" />
     <Content Include="Home.aspx" />
     <Content Include="images\creditcards.jpg" />
     <Content Include="images\encuesta.png" />
@@ -124,6 +125,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Projection.aspx" />
+    <Content Include="UsersAdministration.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -228,13 +230,19 @@
     <Compile Include="silla.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UsersAdministration.aspx.cs">
+      <DependentUpon>UsersAdministration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsersAdministration.aspx.designer.cs">
+      <DependentUpon>UsersAdministration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="usuario.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="css\" />
     <Folder Include="js\" />
   </ItemGroup>
   <ItemGroup>

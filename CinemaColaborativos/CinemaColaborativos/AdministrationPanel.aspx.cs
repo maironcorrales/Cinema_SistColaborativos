@@ -11,7 +11,8 @@ namespace CinemaColaborativos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["USER"] == null)
+                Response.Redirect("Home.aspx");
         }
     }
 }
