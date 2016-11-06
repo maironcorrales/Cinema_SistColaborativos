@@ -10,7 +10,7 @@
 namespace CinemaColaborativos {
     
     
-    public partial class MovieAdministration {
+    public partial class EditMovie {
         
         /// <summary>
         /// movieName control.
@@ -22,13 +22,13 @@ namespace CinemaColaborativos {
         protected global::System.Web.UI.HtmlControls.HtmlInputText movieName;
         
         /// <summary>
-        /// movieTime control.
+        /// timeOfMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText movieTime;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText timeOfMovie;
         
         /// <summary>
         /// movieGender control.
@@ -182,14 +182,5 @@ namespace CinemaColaborativos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor btnAccept;
-        
-        /// <summary>
-        /// AdminMovieRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater AdminMovieRepeater;
     }
 }

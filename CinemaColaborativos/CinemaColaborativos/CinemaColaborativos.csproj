@@ -93,6 +93,7 @@
       <LastGenOutput>CinemaProjectModel.cs</LastGenOutput>
     </Content>
     <Content Include="css\tableStyle.css" />
+    <Content Include="EditMovie.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="images\creditcards.jpg" />
     <Content Include="images\encuesta.png" />
@@ -176,6 +177,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EditMovie.aspx.cs">
+      <DependentUpon>EditMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditMovie.aspx.designer.cs">
+      <DependentUpon>EditMovie.aspx</DependentUpon>
     </Compile>
     <Compile Include="factura.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>

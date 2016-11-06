@@ -1,9 +1,9 @@
-﻿using CinemaColaborativos.Business;
+﻿using AjaxControlToolkit;
+using CinemaColaborativos.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace CinemaColaborativos
@@ -11,9 +11,14 @@ namespace CinemaColaborativos
     public partial class MovieAdministration : System.Web.UI.Page
     {
         HttpPostedFile fileToSave;
-         
+        List<pelicula> movieList = new List<pelicula>();
+        MovieBusiness movie = new MovieBusiness();
+        int i = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            movieList = movie.getAllMovies();
+            AdminMovieRepeater.DataSource = movieList;
+            AdminMovieRepeater.DataBind();
             Browse.Attributes.Add("onclick", "document.getElementById('" + ImageUploader.ClientID + "').click();");
             if (Session["IMAGE"] == null)
                 uploadedImage.Attributes.Add("src", "images/placeholder.gif");
@@ -81,6 +86,43 @@ namespace CinemaColaborativos
             toYear.Value = "";
             fileToSave = null;
             uploadedImage.Attributes.Add("src", "images/placeholder.gif");
+        }
+
+        protected void AdminMovieRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label movieID = (Label)e.Item.FindControl("MovieID");
+                Label name = (Label)e.Item.FindControl("MovieName");
+                Label gender = (Label)e.Item.FindControl("MovieGender");
+                Label dates = (Label)e.Item.FindControl("Dates");
+                Label duration = (Label)e.Item.FindControl("Duration");
+                HiddenField description = (HiddenField)e.Item.FindControl("Description");
+                description.Value = movieList.ElementAt(i).resumen;
+                movieID.Text = movieList.ElementAt(i).id_pelicula.ToString();
+                name.Text = movieList.ElementAt(i).nombre;
+                gender.Text = movieList.ElementAt(i).genero;
+                dates.Text = movieList.ElementAt(i).rango_fechas;
+                duration.Text = movieList.ElementAt(i).duracion;
+            }
+            i++;
+        }
+
+        protected void AdminMovieRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("EditMovie"))
+            {
+                Label id = (Label)e.Item.FindControl("MovieID");
+                Session["EDITMOVIE"] = movie.GetMovieByID(Convert.ToInt32(id.Text));
+                Response.Redirect("EditMovie.aspx");
+            }
+            if (e.CommandName.Equals("DeleteMovie"))
+            {
+                Label id = (Label)e.Item.FindControl("MovieID");
+                movie.DeleteMovie(Convert.ToInt32(id.Text));
+                Response.Redirect("MovieAdministration.aspx");
+            }
+
         }
     }
 }
