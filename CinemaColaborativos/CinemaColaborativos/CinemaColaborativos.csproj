@@ -98,9 +98,11 @@
     <Content Include="images\encuesta.png" />
     <Content Include="images\facebookbtn.png" />
     <Content Include="images\GoogleSignIn.png" />
+    <Content Include="images\placeholder.gif" />
     <Content Include="images\users.png" />
     <Content Include="Login.aspx" />
     <Content Include="LoginWithGoogle1.aspx" />
+    <Content Include="MovieAdministration.aspx" />
     <Content Include="MovieImages\capamerica.jpg" />
     <Content Include="MovieImages\deadpool.jpg" />
     <Content Include="MovieImages\iron-man.jpg" />
@@ -204,6 +206,13 @@
     </Compile>
     <Compile Include="Models\FacebookUser.cs" />
     <Compile Include="Models\ModelUser.cs" />
+    <Compile Include="MovieAdministration.aspx.cs">
+      <DependentUpon>MovieAdministration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieAdministration.aspx.designer.cs">
+      <DependentUpon>MovieAdministration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pelicula.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>
     </Compile>

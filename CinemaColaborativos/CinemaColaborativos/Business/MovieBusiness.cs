@@ -18,5 +18,15 @@ namespace CinemaColaborativos.Business
         {
             return movieContext.pelicula.Where(m => m.id_pelicula == movieID).FirstOrDefault();
         }
+
+        public bool CreateMovie(pelicula movie)
+        {
+            movieContext.pelicula.Add(movie);
+            if (movieContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
+
+        }
     }
 }
