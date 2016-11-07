@@ -92,6 +92,7 @@
       <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
       <LastGenOutput>CinemaProjectModel.cs</LastGenOutput>
     </Content>
+    <Content Include="css\Seat.css" />
     <Content Include="css\tableStyle.css" />
     <Content Include="EditMovie.aspx" />
     <Content Include="Home.aspx" />
@@ -101,6 +102,13 @@
     <Content Include="images\GoogleSignIn.png" />
     <Content Include="images\placeholder.gif" />
     <Content Include="images\users.png" />
+    <Content Include="js\jquery-painSeats.js" />
+    <Content Include="js\jquery.flexisel.js" />
+    <Content Include="js\jquery.magnific-popup.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.seat-charts.js" />
+    <Content Include="js\jquery.seat-charts.min.js" />
+    <Content Include="js\Seat.js" />
     <Content Include="Login.aspx" />
     <Content Include="LoginWithGoogle1.aspx" />
     <Content Include="MovieAdministration.aspx" />
@@ -128,6 +136,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Projection.aspx" />
+    <Content Include="SeatReservation.aspx" />
     <Content Include="UsersAdministration.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -148,6 +157,7 @@
     </Compile>
     <Compile Include="Business\MovieBusiness.cs" />
     <Compile Include="Business\ProjectionBusiness.cs" />
+    <Compile Include="Business\SeatBusiness.cs" />
     <Compile Include="Business\UserBusiness.cs" />
     <Compile Include="Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
@@ -244,6 +254,13 @@
     <Compile Include="sala.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SeatReservation.aspx.cs">
+      <DependentUpon>SeatReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeatReservation.aspx.designer.cs">
+      <DependentUpon>SeatReservation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="silla.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>
     </Compile>
@@ -260,7 +277,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="js\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

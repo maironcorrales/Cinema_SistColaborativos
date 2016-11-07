@@ -55,8 +55,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             
         </asp:ContentPlaceHolder>
     </div>
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    
+       
+
+       
             
 	<div class="clearfix"></div>
 
@@ -83,11 +84,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="clearfix"> </div>
                                 <input class="button play-icon popup-with-zoom-anim" id="cancel" type="button" value="Aceptar" />
                             </asp:Panel>
-                    </form>
+                    
                 </div>
 	</div>
-            </div>
-        </div>
+         </form>
+           
     <style type="text/css">
             .modalBackground {
                 background-color: Black;
