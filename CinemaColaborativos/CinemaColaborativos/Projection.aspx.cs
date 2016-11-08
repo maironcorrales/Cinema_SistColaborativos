@@ -13,11 +13,12 @@ namespace CinemaColaborativos
         ProjectionBusiness projBusiness = new ProjectionBusiness();
         MovieBusiness movieBusiness = new MovieBusiness();
         List<proyeccion> projectionList;
+        pelicula movie = new pelicula();
         int i = 0;
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            pelicula movie = movieBusiness.GetMovieByID(Convert.ToInt32(Request.QueryString["value"]));
+            movie = movieBusiness.GetMovieByID(Convert.ToInt32(Request.QueryString["value"]));
             SetMovieDetails(movie);
             projectionList = projBusiness.GetProjectionsWithMovieIDAsociated(Convert.ToInt32(Request.QueryString["value"]));
             ProjectionRepeater.DataSource = projectionList;
@@ -64,6 +65,8 @@ namespace CinemaColaborativos
                 if (state)
                 {
                     ModalPopupExtender popUp = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
+                    HiddenField id = (HiddenField)e.Item.FindControl("projectionID");
+                    Session["IDPROJECCTION"] = id.Value;
                     popUp.Show();
                 }
                 else
@@ -77,7 +80,7 @@ namespace CinemaColaborativos
 
         protected void AcepptTicketBtn_ServerClick(object sender, EventArgs e)
         {
-            // aqui se pasan los parametros para ir a escoger asientos y hacer todo el tramite de pago y facturacion.
+            Response.Redirect("SeatReservation.aspx?value="+movie.id_pelicula+"&ticketAmount="+ticketQuantity.Value+"&ID="+Session["IDPROJECCTION"].ToString());
         }
     }
 }

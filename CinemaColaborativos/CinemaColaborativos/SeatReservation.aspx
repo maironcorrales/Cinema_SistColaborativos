@@ -18,8 +18,8 @@
 
     <div class="contact-content">
         <div class="main-contact">
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server" style="width:100%; height:100%;">
             <ContentTemplate>
                 <div class="contact-form">
                     <asp:HiddenField ID="seat_reservation" runat="server" />
