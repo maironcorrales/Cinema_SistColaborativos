@@ -60,6 +60,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stripe.net, Version=6.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.6.11.0\lib\net45\Stripe.net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -136,6 +144,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Projection.aspx" />
+    <Content Include="ProjectionAdministration.aspx" />
     <Content Include="SeatReservation.aspx" />
     <Content Include="UsersAdministration.aspx" />
     <Content Include="Web.config" />
@@ -240,6 +249,13 @@
     </Compile>
     <Compile Include="Projection.aspx.designer.cs">
       <DependentUpon>Projection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectionAdministration.aspx.cs">
+      <DependentUpon>ProjectionAdministration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectionAdministration.aspx.designer.cs">
+      <DependentUpon>ProjectionAdministration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="proyeccion.cs">

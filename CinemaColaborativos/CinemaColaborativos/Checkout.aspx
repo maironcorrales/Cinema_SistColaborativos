@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cinema.Master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="CinemaColaborativos.Checkout" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cinema.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="CinemaColaborativos.Checkout" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
@@ -10,21 +10,21 @@
                             <div class="col-md-6 contact-left">
                                 <div class="form-group">
 
-                                    <input type="text" aria-describedby="basic-addon2" placeholder="Correo electrónico" style="width:80%;" class="form-control" required />
+                                    <input runat="server" type="text" aria-describedby="basic-addon2" placeholder="Correo electrónico" id="Correo" style="width:80%;" class="form-control" required />
                                     <br />
-                                    <input type="text" placeholder="Nombre de la tarjeta" style="width:80%;" class="form-control" required />
+                                    <input runat="server" type="text" placeholder="Nombre de la tarjeta" style="width:80%;" id="NombreTarjeta" class="form-control" required />
                                     <br />
-                                    <input type="text" placeholder="Numero de la tarjeta" style="width:80%;" class="form-control" required />
+                                    <input runat="server" type="text" placeholder="Numero de la tarjeta" style="width:80%;" id="NumeroTarjeta" class="form-control" required />
                                     <br />
-                                    <input type="password" placeholder="Código de seguridad de la tarjeta" style="width:80%;" class="form-control" required />
+                                    <input runat="server" type="password" placeholder="Código de seguridad de la tarjeta" id="CodigoSeguridad" style="width:80%;" class="form-control" required />
                                     <br />
-                                    <input type="text" placeholder="Teléfono" class="form-control" style="width:80%;" required />
+                                    <input runat="server" type="text" placeholder="Teléfono" class="form-control" style="width:80%;" id="Telefono" required />
                                 </div>
                                 <span id="lblExpiryDate" class="">Fecha de vencimiento:</span>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-2 contact-left">
-                                            <select class="form-control" name="dropCardExpiryMonth" id="dropCardExpiryMonth" tabindex="1" style="width:100%;">
+                                            <select runat="server" class="form-control" name="dropCardExpiryMonth" id="dropCardExpiryMonth" tabindex="1" style="width:100%;">
                                                 <option selected="selected" value="">Día</option>
                                                 <option value="01">01</option>
                                                 <option value="02">02</option>
@@ -42,7 +42,7 @@
                                         </div>
                                        
                                         <div class="col-md-2 contact-right">
-                                            <select class="form-control" name="dropCardExpiryYear" tabindex="1" style="width:100%;">
+                                            <select runat="server" class="form-control" name="dropCardExpiryYear" id="dropCardExpiryYear" tabindex="1" style="width:100%;">
                                                 <option selected="selected" value="">Año</option>
                                                 <option value="2016">2016</option>
                                                 <option value="2017">2017</option>
@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                     <div class="form-group">
-                                        <select class="form-control" name="dropCardType" id="dropCardType" tabindex="1" style="width:80%;" onchange="SaveCardTypeSelected();">
+                                        <select runat="server" class="form-control" name="dropCardType" id="dropCardType" tabindex="1" style="width:80%;" onchange="SaveCardTypeSelected();">
                                             <option value="">Método de pago</option>
                                             <option value="Visa">Visa</option>
                                             <option value="Mastercard">Mastercard</option>
@@ -70,12 +70,14 @@
                                             <option value="Discover">Discover</option>
                                         </select>
                                     </div>
-                                    <input type="submit" class="btn-primary" value="Pagar" />
-                                </div>
+                                    
+                                    <asp:Button ID="BuyBtn" runat="server" Text="Pagar" onclick="BuyBtn_Click" BorderColor="LightBlue" CssClass="btn-primary" />    
+                                    </div>
                                     <div class="col-md-6 contact-right">
                                         <img src="images/creditcards.jpg" style="width:100%;"/>
                                     </div>
                                     <div class="clearfix"></div>
+                            <label runat="server" id="error" color="red"> </label>
 </form>
                     </div>
                 </div>

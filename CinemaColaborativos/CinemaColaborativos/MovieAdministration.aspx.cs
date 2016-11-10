@@ -122,6 +122,13 @@ namespace CinemaColaborativos
                 movie.DeleteMovie(Convert.ToInt32(id.Text));
                 Response.Redirect("MovieAdministration.aspx");
             }
+            if (e.CommandName.Equals("CreateProjection"))
+            {
+                Label labelID = (Label)e.Item.FindControl("MovieID");
+                int id = Convert.ToInt32(labelID.Text);
+                Session["MOVIE"]=movie.GetMovieByID(id);
+                Response.Redirect("ProjectionAdministration.aspx");   
+            }
 
         }
     }

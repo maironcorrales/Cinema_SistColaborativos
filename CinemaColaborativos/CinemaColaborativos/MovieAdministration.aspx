@@ -186,6 +186,7 @@
                         <th style="width:20%">Duración</th>
                         <th style="width:20%">Rango de Fechas</th>
                         <th style="width:20%">Acción</th>
+                        <<th style="width:20%">Projección</th>
                     </tr>
                         
                         <asp:Repeater id="AdminMovieRepeater" runat="server" OnItemDataBound="AdminMovieRepeater_ItemDataBound" OnItemCommand="AdminMovieRepeater_ItemCommand">
@@ -200,6 +201,7 @@
                                 </td>
                                 <td><asp:LinkButton runat="server" CommandName="EditMovie" Text="Editar"></asp:LinkButton>
                                 <asp:LinkButton runat="server" CommandName="DeleteMovie" Text="Eliminar"></asp:LinkButton></td>
+                                <td><asp:LinkButton runat="server" ID="Projecction" CommandName="CreateProjection" Text="Ir a Projecciones"></asp:LinkButton></td>
                             </tr>
                         </ItemTemplate>
                         </asp:Repeater>                   
