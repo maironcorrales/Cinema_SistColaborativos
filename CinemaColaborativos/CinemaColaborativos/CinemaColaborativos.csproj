@@ -100,10 +100,13 @@
       <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
       <LastGenOutput>CinemaProjectModel.cs</LastGenOutput>
     </Content>
+    <Content Include="css\jquery-ui-1.8.19.custom.css" />
     <Content Include="css\Seat.css" />
     <Content Include="css\tableStyle.css" />
     <Content Include="EditMovie.aspx" />
+    <Content Include="EditProjection.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="images\calendar-lt.png" />
     <Content Include="images\creditcards.jpg" />
     <Content Include="images\encuesta.png" />
     <Content Include="images\facebookbtn.png" />
@@ -167,6 +170,7 @@
     <Compile Include="Business\MovieBusiness.cs" />
     <Compile Include="Business\ProjectionBusiness.cs" />
     <Compile Include="Business\SeatBusiness.cs" />
+    <Compile Include="Business\TheaterBusiness.cs" />
     <Compile Include="Business\UserBusiness.cs" />
     <Compile Include="Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
@@ -203,6 +207,13 @@
     </Compile>
     <Compile Include="EditMovie.aspx.designer.cs">
       <DependentUpon>EditMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProjection.aspx.cs">
+      <DependentUpon>EditProjection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProjection.aspx.designer.cs">
+      <DependentUpon>EditProjection.aspx</DependentUpon>
     </Compile>
     <Compile Include="factura.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>

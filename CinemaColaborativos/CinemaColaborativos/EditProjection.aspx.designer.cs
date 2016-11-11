@@ -10,7 +10,7 @@
 namespace CinemaColaborativos {
     
     
-    public partial class ProjectionAdministration {
+    public partial class EditProjection {
         
         /// <summary>
         /// movieProjection control.
@@ -103,30 +103,12 @@ namespace CinemaColaborativos {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl message;
         
         /// <summary>
-        /// btnCancel control.
+        /// btnAccept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnCancel;
-        
-        /// <summary>
-        /// projectionTittle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl projectionTittle;
-        
-        /// <summary>
-        /// ProjectionRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ProjectionRepeater;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAccept;
     }
 }

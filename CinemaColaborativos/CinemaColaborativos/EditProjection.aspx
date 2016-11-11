@@ -1,11 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administration.Master" AutoEventWireup="true" CodeBehind="ProjectionAdministration.aspx.cs" Inherits="CinemaColaborativos.ProjectionAdministration" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administration.Master" AutoEventWireup="true" CodeBehind="EditProjection.aspx.cs" Inherits="CinemaColaborativos.EditProjection" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/tableStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="contact-content">
+    <div class="contact-content">
          <div class="main-contact">
             <h3 class="head">Administración de Projecciones</h3>
              <div class="contact-form">
@@ -42,7 +41,7 @@
                              <asp:DropDownList ID="theaterSelection" CssClass="form-control" runat="server" style="width:80%;">
                              </asp:DropDownList>
                          </p><br />
-                         <a  runat="server" class="button play-icon popup-with-zoom-anim" id="SaveProjection" onserverclick="Save_ServerClick" style="width:20%;text-align:center;" >Crear</a>
+                         <a  runat="server" onserverclick="SaveProjection_ServerClick" class="button play-icon popup-with-zoom-anim" id="SaveProjection" style="width:20%;text-align:center;" >Guardar Cambios</a>
                          <asp:Button ID="processbtn" runat="server" Style="visibility:hidden"/>
                          <asp:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
                               
@@ -54,7 +53,7 @@
                          <asp:Panel ID="Panel1" Style="display: none" CssClass="modalPopup" align="center" runat="server">
                             <p runat="server" id="message"></p>
                                 <div class="clearfix"> </div>
-                                <input runat="server" onserverclick="btnCancel_ServerClick" class="button play-icon popup-with-zoom-anim" id="btnCancel" type="button" value="Aceptar" />
+                                <input runat="server" onserverclick="btnAccept_ServerClick" class="button play-icon popup-with-zoom-anim" id="btnAccept" type="button" value="Aceptar" />
                             </asp:Panel>
                      </div>
                      
@@ -64,39 +63,7 @@
      </div> 
                  
     </div>
-    <br />
-    <div class="error-content">
-                <div class="error-404 text-center">
-				<p runat="server" id="projectionTittle"></p>
-                     <table cellspacing="0">
-                        <tr>
-                            <th style="width:10%">Id</th>
-                            <th style="width:20%">Fecha</th>
-                            <th style="width:20%">Hora</th>
-                            <th style="width:20%">Sala</th>
-                            <th style="width:20%">Cambiar Estado</th>
-                            <th style="width:20%">Acción</th>
-                        </tr>
-                         
-                             <asp:Repeater ID="ProjectionRepeater" runat="server" OnItemDataBound="ProjectionRepeater_ItemDataBound" OnItemCommand="ProjectionRepeater_ItemCommand">
-                                 <ItemTemplate>
-                                     <tr>
-                                      <td><asp:Label runat="server" ID="ProID"/></td>
-                                        <td><asp:Label runat="server" ID="ProDate"/></td>
-                                        <td><asp:Label runat="server" ID="ProTime"/></td>
-                                        <td><asp:Label runat="server" ID="ProTheater"/></td>
-                                        <td><asp:LinkButton runat="server" CommandName="ChangeStatus" ID="changeStatus"></asp:LinkButton></td>
-                                        <td><asp:LinkButton runat="server" CommandName="Delete" Text="Eliminar"></asp:LinkButton>
-                                            <asp:LinkButton runat="server" CommandName="Edit" Text="Editar"></asp:LinkButton>
-                                        </td>
-                                       </tr>
-                                 </ItemTemplate>
-                             </asp:Repeater>
-                      </table>
-                </div>
-        </div>
-    
-      <style type="text/css">
+    <style type="text/css">
             .modalBackground {
                 background-color: Black;
                 filter: alpha(opacity=90);

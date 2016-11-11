@@ -24,6 +24,7 @@
                             <option value="Suspenso">Suspenso</option>
                             <option value="Fantasía">Fantasía</option>
                             <option value="Comedia">Comedia</option>
+                            
                             <option value="Cine Independiente">Cine Independiente</option>
                          </select><br />
                          <span id="lblExpiryDate" class="">Rango de Fechas de Projecciones:</span><br />
@@ -186,7 +187,7 @@
                         <th style="width:20%">Duración</th>
                         <th style="width:20%">Rango de Fechas</th>
                         <th style="width:20%">Acción</th>
-                        <<th style="width:20%">Projección</th>
+                        <th style="width:20%">Projección</th>
                     </tr>
                         
                         <asp:Repeater id="AdminMovieRepeater" runat="server" OnItemDataBound="AdminMovieRepeater_ItemDataBound" OnItemCommand="AdminMovieRepeater_ItemCommand">
