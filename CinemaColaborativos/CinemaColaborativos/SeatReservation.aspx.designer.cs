@@ -22,12 +22,21 @@ namespace CinemaColaborativos {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// seat_reservation control.
+        /// hi_counter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField seat_reservation;
+        protected global::System.Web.UI.WebControls.HiddenField hi_counter;
+        
+        /// <summary>
+        /// AcepptReservationBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton AcepptReservationBtn;
     }
 }

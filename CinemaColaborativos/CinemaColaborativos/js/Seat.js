@@ -1,7 +1,10 @@
-﻿var price = 10; //price
+﻿var price = 5; //price
 
 function re() {
+    
 
+    var i = 0; 
+    var c = parseInt(document.getElementById('hi_counter.ClientID').value);
     var $cart = $('#selected-seats'), //Sitting Area
 	$counter = $('#counter'), //Votes
 	$total = $('#total'); //Total money
@@ -33,39 +36,50 @@ function re() {
             ]
         },
         click: function () { //Click event
-            if (this.status() == 'available') { //optional seat
-                $('<li>' + 'F' + (this.settings.row + 1) + 'C' + this.settings.label + '</li>')
-					.attr('id', 'cart-item-' + this.settings.id)
+                if (this.status() == 'available') { //optional seat
 
-					.attr('class', this.settings.id)
-					.data('seatId', this.settings.id)
-					.appendTo($cart);
+                    if (i < c) {
 
-                $counter.text(sc.find('selected').length + 1);
-                $counter.attr('class', (sc.find('selected').length + 1));
-                $total.text(recalculateTotal(sc) + price);
+                        $('<li>' + 'F' + (this.settings.row + 1) + ' C' + this.settings.label + '</li>')
+                            .attr('id', 'cart-item-' + this.settings.id)
 
-                return 'selected';
-            } else if (this.status() == 'selected') { //Checked
-                //Update Number
-                $counter.text(sc.find('selected').length - 1);
-                $counter.attr('class', (sc.find('selected').length - 1));
-                //update totalnum
-                $total.text(recalculateTotal(sc) - price);
+                            .attr('class', this.settings.id)
+                            .data('seatId', this.settings.id)
+                            .appendTo($cart);
 
-                //Delete reservation
-                $('#cart-item-' + this.settings.id).remove();
-                //optional
-                return 'available';
-            } else if (this.status() == 'unavailable') { //sold
-                return 'unavailable';
-            } else {
-                return this.style();
+                        $counter.text(sc.find('selected').length + 1);
+                        $counter.attr('class', (sc.find('selected').length + 1));
+                        $total.text(recalculateTotal(sc) + price);
+                        i++;
+
+
+
+                        return 'selected';
+                    } else {
+                        return 'available';
+                    }
+                } else if (this.status() == 'selected') { //Checked
+                    //Update Number
+                    $counter.text(sc.find('selected').length - 1);
+                    $counter.attr('class', (sc.find('selected').length - 1));
+                    i--;
+                    //update totalnum
+                    $total.text(recalculateTotal(sc) - price);
+
+                    //Delete reservation
+                    $('#cart-item-' + this.settings.id).remove();
+                    //optional
+                    return 'available';
+                } else if (this.status() == 'unavailable') { //sold
+                    return 'unavailable';
+                } else {
+                    return this.style();
+                }
             }
-        }
+       
     });
     //sold seat
-    h = '';
+    var h = '';
     z = document.getElementById("vector1").value;
     console.log(z + "este es z")
     h = z.split(",")
