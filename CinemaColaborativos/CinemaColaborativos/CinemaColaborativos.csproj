@@ -169,7 +169,7 @@
     </Compile>
     <Compile Include="Business\MovieBusiness.cs" />
     <Compile Include="Business\ProjectionBusiness.cs" />
-    <Compile Include="Business\SeatBusiness.cs" />
+    <Compile Include="Business\Reservationbusiness.cs" />
     <Compile Include="Business\TheaterBusiness.cs" />
     <Compile Include="Business\UserBusiness.cs" />
     <Compile Include="Checkout.aspx.cs">

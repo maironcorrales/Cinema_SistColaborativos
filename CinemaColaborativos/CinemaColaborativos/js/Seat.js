@@ -3,7 +3,7 @@
 function re() {
     
 
-    var i = 0; 
+    var i = 0;
     var c = parseInt(document.getElementById('hi_counter.ClientID').value);
     var $cart = $('#selected-seats'), //Sitting Area
 	$counter = $('#counter'), //Votes

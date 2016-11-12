@@ -13,6 +13,7 @@ namespace CinemaColaborativos
         int movieID;
         int projectionID;
         int userID;
+        public int ticketNumber;
        
        
         List<reservacion> reservacionList = new List<reservacion>();
@@ -28,6 +29,7 @@ namespace CinemaColaborativos
             reservacionList = reservation.getAllreservations();
             movieID = Convert.ToInt32(Request.QueryString["value"]);
             hi_counter.Value = Request.QueryString["ticketAmount"];
+            ticketNumber = Convert.ToInt32(hi_counter.Value);
             projectionID = Convert.ToInt32(Request.QueryString["ID"]);
             usuario user = (usuario)Session["USER"];
             userID = user.id_usuario;
@@ -40,13 +42,14 @@ namespace CinemaColaborativos
             reservation.proyeccion_id_proyeccion = projectionID;
             reservation.proyeccion_pelicula_id_pelicula = movieID;
            
-            if (reservation.usuario_id_usuario != null && reservation.estado_reservacion != null && reservation.proyeccion_id_proyeccion != null && reservation.proyeccion_pelicula_id_pelicula != null)
+            if (reservation.usuario_id_usuario != 0 && reservation.estado_reservacion  && reservation.proyeccion_id_proyeccion != 0 && reservation.proyeccion_pelicula_id_pelicula != 0)
             {
                 Reservationbusiness reservationBusiness = new Reservationbusiness();
                 if (reservationBusiness.CreateReservation(reservation))
                 {
                    
                     Console.WriteLine("La reservacion se realizo con éxito.");
+                    Response.Redirect("Checkout.aspx");
                 }
                 else
                 {
