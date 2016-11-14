@@ -56,12 +56,12 @@ namespace CinemaColaborativos
                 MovieBusiness movieBusiness = new MovieBusiness();
                 if (movieBusiness.CreateMovie(movie))
                 {
-                    resultMessage.InnerText = "Pélicula creada con éxito.";
+                    resultMessage.InnerText = "Película creada con éxito.";
                     ModalPopupExtender.Show();
                 }
                 else
                 {
-                    resultMessage.InnerText = "La pélicula no ha sido creada debido a que se ha producido un error. Intentelo más tarde.";
+                    resultMessage.InnerText = "La película no ha sido creada debido a que se ha producido un error. Intentelo más tarde.";
                     ModalPopupExtender.Show();
                 }
             }

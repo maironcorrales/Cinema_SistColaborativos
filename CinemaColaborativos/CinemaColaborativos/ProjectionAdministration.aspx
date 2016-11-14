@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="contact-content">
          <div class="main-contact">
-            <h3 class="head">Administración de Projecciones</h3>
+            <h3 class="head">Administración de Proyecciones</h3>
              <div class="contact-form">
 				 <div class="col-md-6 contact-left">
                      <div>
@@ -39,7 +39,7 @@
                              <option value="12:00">12:00</option>
                          </select></p><br />
                          <p>Sala donde será la proyección:
-                             <asp:DropDownList ID="theaterSelection" CssClass="form-control" runat="server" style="width:80%;">
+                             <asp:DropDownList ID="theaterSelection" CssClass="form-control" runat="server" style="width:80%;" OnSelectedIndexChanged="theaterSelection_SelectedIndexChanged">
                              </asp:DropDownList>
                          </p><br />
                          <a  runat="server" class="button play-icon popup-with-zoom-anim" id="SaveProjection" onserverclick="Save_ServerClick" style="width:20%;text-align:center;" >Crear</a>

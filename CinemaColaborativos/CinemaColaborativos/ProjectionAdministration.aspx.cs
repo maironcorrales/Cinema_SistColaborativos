@@ -136,5 +136,10 @@ namespace CinemaColaborativos
             Response.Redirect("ProjectionAdministration.aspx");
             i = 0;
         }
+
+        protected void theaterSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

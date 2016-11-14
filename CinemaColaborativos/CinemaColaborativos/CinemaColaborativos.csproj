@@ -100,11 +100,14 @@
       <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
       <LastGenOutput>CinemaProjectModel.cs</LastGenOutput>
     </Content>
+    <Content Include="css\Grid.css" />
     <Content Include="css\jquery-ui-1.8.19.custom.css" />
     <Content Include="css\Seat.css" />
     <Content Include="css\tableStyle.css" />
     <Content Include="EditMovie.aspx" />
     <Content Include="EditProjection.aspx" />
+    <Content Include="frmReportePeliculas.aspx" />
+    <Content Include="frmReporteSalas.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="images\calendar-lt.png" />
     <Content Include="images\creditcards.jpg" />
@@ -217,6 +220,20 @@
     </Compile>
     <Compile Include="factura.cs">
       <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportePeliculas.aspx.cs">
+      <DependentUpon>frmReportePeliculas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReportePeliculas.aspx.designer.cs">
+      <DependentUpon>frmReportePeliculas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteSalas.aspx.cs">
+      <DependentUpon>frmReporteSalas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReporteSalas.aspx.designer.cs">
+      <DependentUpon>frmReporteSalas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

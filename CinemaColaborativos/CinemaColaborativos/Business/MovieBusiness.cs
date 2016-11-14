@@ -66,5 +66,48 @@ namespace CinemaColaborativos.Business
             else
                 return false;
         }
+        //Retorna las películas que coninciden con los parámetros
+        public List<pelicula> consultarPelicula(string genero, string fecha,string nombre)
+        {
+            List<pelicula> movieList = new List<pelicula>();
+            if (genero =="Género" && fecha =="/ - /" && nombre =="")
+            {
+                return getAllMovies();
+                
+            }
+
+            if (genero == "Género" && fecha != "/ - /" &&  nombre != "")
+            {
+                return movieContext.pelicula.Where(m => m.rango_fechas == fecha && m.nombre.Contains(nombre)).ToList();
+            }
+
+            if (genero == "Género" && fecha == "/ - /" && nombre != "")
+            {
+                return movieContext.pelicula.Where(m => m.nombre.Contains(nombre)).ToList();
+            }
+
+            if (genero != "Género" && fecha == "/ - /" && nombre != "")
+            {
+                return movieContext.pelicula.Where(m =>m.genero == genero && m.nombre.Contains(nombre)).ToList();
+            }
+
+            if (genero == "Género" && fecha != "/ - /" && nombre == "")
+            {
+                return movieContext.pelicula.Where(m => m.rango_fechas == fecha ).ToList();
+            }
+
+            if (genero == "Género" && fecha == "/ - /" && nombre != "")
+            {
+                return movieContext.pelicula.Where(m =>  m.nombre.Contains(nombre)).ToList();
+            }
+
+            if (genero != "Género" && fecha != "/ - /" && nombre != "")
+            {
+                return movieContext.pelicula.Where(m => m.rango_fechas == fecha && m.nombre.Contains(nombre) && m.genero == genero).ToList();
+            }
+            else {
+                return movieContext.pelicula.Where(m => m.rango_fechas == fecha && m.nombre.Contains(nombre) && m.genero == genero).ToList();
+            }
+        }
     }
 }

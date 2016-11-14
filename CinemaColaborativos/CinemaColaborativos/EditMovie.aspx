@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="contact-content">
          <div class="main-contact">
-             <h3 class="head">Administración de Péliculas</h3>
+             <h3 class="head">Administración de películas</h3>
              <div class="contact-form">
 				 <div class="col-md-6 contact-left">
                      <div>
@@ -152,7 +152,7 @@
                      
 				  </div>
 				  <div class="col-md-6 contact-right">
-                      <h2>Foto de la Pélicula</h2><br />
+                      <h2>Foto de la película</h2><br />
                       <img runat="server" id="uploadedImage" style="width:100%;height:100%;" />
                       <a class="button play-icon popup-with-zoom-anim" runat="server" id="Browse" style="width:20%;text-align:center;">Buscar</a>
                       <a class="button play-icon popup-with-zoom-anim" id="UploadImage" runat="server" onserverclick="UploadImage_ServerClick" style="width:20%;text-align:center;">Subir Foto</a>
