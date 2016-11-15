@@ -1,0 +1,2 @@
+alter table reservacion
+add valoracion int
