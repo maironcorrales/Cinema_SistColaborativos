@@ -26,6 +26,7 @@ namespace CinemaColaborativos
         public int usuario_id_usuario { get; set; }
         public int proyeccion_id_proyeccion { get; set; }
         public int proyeccion_pelicula_id_pelicula { get; set; }
+        public Nullable<int> valoracion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<factura> factura { get; set; }

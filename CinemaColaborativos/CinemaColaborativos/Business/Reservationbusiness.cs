@@ -35,7 +35,17 @@ namespace CinemaColaborativos.Business
         {
             return reservationContex.usuario.FirstOrDefault(u => u.correo == email);
         }
-  
+
+
+        public bool ActualizarValoracionReservacion(int idReservacion, int valoracion)
+        {
+            reservacion re = reservationContex.reservacion.Where(r => r.id_reservacion == idReservacion).FirstOrDefault();
+            re.valoracion = valoracion;
+            if (reservationContex.SaveChanges() == 1)
+                return true;
+            else
+                return false;
+        }
 
     }
 }
