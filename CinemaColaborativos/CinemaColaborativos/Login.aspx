@@ -6,8 +6,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="contact-content">
     <div class="main-contact">
-		 <h3 class="head">Registrate o Accede Usando</h3>
-		 <p>alguno de los siguientes servicios</p>
+		 <h3 class="head">Registrese o ingrese usando alguno de los siguientes servicios</h3>
+		 <H4>&nbsp;</H4>
 		 <div class="contact-form">
 			
 				 <div class="col-md-6 contact-left">

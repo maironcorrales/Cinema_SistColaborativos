@@ -16,6 +16,8 @@ namespace CinemaColaborativos
         public string Return_url = "";
         public string BirthDay = "";
         public string Phone = "";
+        public string nombre = "";
+        UserBusiness userBusiness = new UserBusiness();
         protected void Page_Load(object sender, EventArgs e)
         {
             fbLogin.NavigateUrl = "https://www.facebook.com/v2.8/dialog/oauth/?client_id=" + ConfigurationManager.AppSettings["FacebookAppId"] + "&redirect_uri=http://" + Request.ServerVariables["SERVER_NAME"] + ":" + Request.ServerVariables["SERVER_PORT"] + "/Home.aspx&response_type=code&state=1&scope=email";
@@ -54,19 +56,28 @@ namespace CinemaColaborativos
                 firstName = ar.GetValue(4).ToString();
                 LastName = ar.GetValue(5).ToString();
                 BirthDay = ar.GetValue(6).ToString();
+                nombre = ar.GetValue(3).ToString();
                 Phone = ar.GetValue(7).ToString();
-                AsignUser(Email_address, BirthDay, Phone);
-                Response.Redirect("Home.aspx");
+                AsignUser(Email_address, BirthDay, Phone,nombre);
+                if (userBusiness.loginUser(Email_address).tipo_usuario ==0)
+                {
+                    Response.Redirect("AdministrationPanel.aspx");
+                }
+                else
+                {
+                    Response.Redirect("Home.aspx");
+                }
+                
             }
         }
 
-        private void AsignUser(string email,string birthday, string phone)
+        private void AsignUser(string email,string birthday, string phone, string nombre)
         {
             
-            UserBusiness userBusiness = new UserBusiness();
+            
             if (userBusiness.loginUser(email) == null)
             {
-                userBusiness.Createuser(email, birthday, phone);
+                userBusiness.Createuser(email, birthday, phone,nombre);
                 Session["USER"] = userBusiness.loginUser(email);
             }
             else

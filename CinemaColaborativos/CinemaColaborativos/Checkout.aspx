@@ -16,7 +16,7 @@
                                     <br />
                                     <input runat="server" type="text" placeholder="Numero de la tarjeta" style="width:80%;" id="NumeroTarjeta" class="form-control" required />
                                     <br />
-                                    <input runat="server" type="password" placeholder="Código de seguridad de la tarjeta" id="CodigoSeguridad" style="width:80%;" class="form-control" required />
+                                    <input runat="server" type="text" placeholder="Código de seguridad de la tarjeta" id="CodigoSeguridad" style="width:80%;" class="form-control" required />
                                     <br />
                                     <input runat="server" type="text" placeholder="Teléfono" class="form-control" style="width:80%;" id="Telefono" required />
                                 </div>

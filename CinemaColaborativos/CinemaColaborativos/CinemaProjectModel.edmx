@@ -92,6 +92,7 @@
           <Property Name="telefono" Type="nvarchar" MaxLength="255" />
           <Property Name="tipo_usuario" Type="int" Nullable="false" />
           <Property Name="estado" Type="bit" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="8000" />
         </EntityType>
         <Association Name="FK__factura__reserva__1BFD2C07">
           <End Role="reservacion" Type="Self.reservacion" Multiplicity="1" />
@@ -374,6 +375,7 @@
           <Property Name="estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="factura" Relationship="Self.FK__factura__reserva__20C1E124" FromRole="usuario" ToRole="factura" />
           <NavigationProperty Name="reservacion" Relationship="Self.FK__reservaci__usuar__1B0907CE" FromRole="usuario" ToRole="reservacion" />
+          <Property Name="nombre" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__factura__reserva__1FCDBCEB">
           <End Role="reservacion" Type="Self.reservacion" Multiplicity="1" />
@@ -633,6 +635,7 @@
           <EntitySetMapping Name="usuario">
             <EntityTypeMapping TypeName="CinemaProjectModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
                 <ScalarProperty Name="correo" ColumnName="correo" />
                 <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />

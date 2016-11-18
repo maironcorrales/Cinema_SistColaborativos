@@ -6,7 +6,7 @@ namespace CinemaColaborativos.Business
     public class UserBusiness
     {
         CinemaProjectEntities DbContext = new CinemaProjectEntities();
-        public void Createuser(string mail,string birthday,string phone)
+        public void Createuser(string mail,string birthday,string phone,string nombre)
         {
             usuario user = new usuario();
             user.correo = mail;
@@ -14,11 +14,12 @@ namespace CinemaColaborativos.Business
             user.telefono = phone;
             user.tipo_usuario = 1;
             user.fecha_nacimiento = birthday;
+            user.nombre = nombre;
             DbContext.usuario.Add(user);
             DbContext.SaveChanges();   
         }
 
-        public bool CreateAdministratorUser(string mail, string birthday, string phone)
+        public bool CreateAdministratorUser(string mail, string birthday, string phone,string nombre)
         {
             usuario user = new usuario();
             user.correo = mail;
@@ -26,6 +27,7 @@ namespace CinemaColaborativos.Business
             user.telefono = phone;
             user.tipo_usuario = 0;
             user.fecha_nacimiento = birthday;
+            user.nombre = nombre;
             DbContext.usuario.Add(user);
             if (DbContext.SaveChanges() == 1)
                 return true;
@@ -74,13 +76,13 @@ namespace CinemaColaborativos.Business
                 return false;
         }
 
-        public bool UpdateMailAndPhonenumber(string phone, string mail, int id)
+        public bool UpdateMailAndPhonenumber(string phone, int id,string nombre)
         {
             var result = DbContext.usuario.FirstOrDefault(u => u.id_usuario == id);
             if (result != null)
             {
-                result.correo = mail;
                 result.telefono = phone;
+                result.nombre = nombre;
             }
             if (DbContext.SaveChanges() == 1)
                 return true;

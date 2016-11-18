@@ -31,6 +31,15 @@ namespace CinemaColaborativos {
         protected global::System.Web.UI.WebControls.Button btnBuscar;
         
         /// <summary>
+        /// btnLimpiarDatos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpiarDatos;
+        
+        /// <summary>
         /// resultado control.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,14 @@ namespace CinemaColaborativos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView resultado;
+        
+        /// <summary>
+        /// btnRegresar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegresar;
     }
 }

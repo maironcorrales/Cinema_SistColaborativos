@@ -19,26 +19,37 @@ namespace CinemaColaborativos
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            Business.ProjectionBusiness p = new Business.ProjectionBusiness();
-            DataTable dt = new DataTable();
-            DataSet ds = new DataSet();
-            int numeroFactura = 0;
-            if (int.TryParse(txtNumeroFactura.Text, out numeroFactura))
-            {
-                dt = p.consultaFactura(numeroFactura);
-            }
-            else
-            {
-                dt = p.consultaFactura(0);
-            }
-            ds.Tables.Add(dt);
-            resultado.DataSource = ds;
-            resultado.DataBind();
-            resultado.Visible = true;
+
+                Business.ProjectionBusiness p = new Business.ProjectionBusiness();
+                DataTable dt = new DataTable();
+                DataSet ds = new DataSet();
+                int numeroFactura = 0;
+                if (int.TryParse(txtNumeroFactura.Text, out numeroFactura))
+                {
+                    dt = p.consultaFactura(numeroFactura);
+                }
+                else
+                {
+                    dt = p.consultaFactura(0);
+                }
+                ds.Tables.Add(dt);
+                resultado.DataSource = ds;
+                resultado.DataBind();
+                resultado.Visible = true;
+
+                 
 
         }
 
-       
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNumeroFactura.Text = "";
+        }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmReportes.aspx");
+        }
     }
 
   

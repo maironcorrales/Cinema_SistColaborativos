@@ -13,6 +13,15 @@ namespace CinemaColaborativos {
     public partial class UsersAdministration {
         
         /// <summary>
+        /// nombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nombre;
+        
+        /// <summary>
         /// mail control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace CinemaColaborativos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button processbtn;
+        
+        /// <summary>
+        /// nombreModificar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nombreModificar;
         
         /// <summary>
         /// MailToEdit control.
@@ -128,5 +146,14 @@ namespace CinemaColaborativos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater AdminUserRepeater;
+        
+        /// <summary>
+        /// btnRegresar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegresar;
     }
 }

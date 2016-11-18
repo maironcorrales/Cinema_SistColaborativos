@@ -10,8 +10,15 @@ namespace CinemaColaborativos
             if (Session["USER"] != null)
             {
                 usuario user = (usuario)Session["USER"];
-                username.InnerText = user.correo+"!";
+                username.InnerText = user.nombre;
+                link.InnerText = "Salir";
             }
+            else
+            {
+                
+            }
+           
+            
                 
         }
 
@@ -35,5 +42,12 @@ namespace CinemaColaborativos
                 ModalPopupExtender1.Show();
             }
         }
+
+        public void ingresar()
+        {
+            link.Visible = false;
+            link.InnerText = "";
+        }
+
     }
 }

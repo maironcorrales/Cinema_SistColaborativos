@@ -40,7 +40,7 @@ namespace CinemaColaborativos
             GridViewRow row = (GridViewRow)ddl.NamingContainer;
             DropDownList ddlNew = (DropDownList)resultado.Rows[row.RowIndex].FindControl("ddlValoraciones");
             string abc = ddlNew.SelectedValue;
-            string proyeccion = resultado.Rows[row.RowIndex].Cells[3].Text;
+            string proyeccion = resultado.Rows[row.RowIndex].Cells[4].Text;
             int idReservacion = 0;
             int valor = 0;
             if (int.TryParse(abc, out valor))
@@ -55,6 +55,11 @@ namespace CinemaColaborativos
         protected void cargarDatos(object sender, GridViewRowEventArgs e)
         {
            
+        }
+
+        protected void resultado_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
         }
     }
 }

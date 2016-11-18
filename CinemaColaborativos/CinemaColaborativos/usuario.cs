@@ -27,6 +27,7 @@ namespace CinemaColaborativos
         public string telefono { get; set; }
         public int tipo_usuario { get; set; }
         public bool estado { get; set; }
+        public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<factura> factura { get; set; }

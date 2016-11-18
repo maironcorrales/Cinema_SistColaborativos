@@ -90,10 +90,14 @@ namespace CinemaColaborativos.Business
             {
                 return movieContext.pelicula.Where(m =>m.genero == genero && m.nombre.Contains(nombre)).ToList();
             }
+            if (genero != "Género" && fecha == "/ - /" && nombre == "")
+            {
+                return movieContext.pelicula.Where(m => m.genero == genero && m.nombre.Contains(nombre)).ToList();
+            }
 
             if (genero == "Género" && fecha != "/ - /" && nombre == "")
             {
-                return movieContext.pelicula.Where(m => m.rango_fechas == fecha ).ToList();
+                return movieContext.pelicula.Where(m => m.rango_fechas.Contains(fecha)).ToList();
             }
 
             if (genero == "Género" && fecha == "/ - /" && nombre != "")

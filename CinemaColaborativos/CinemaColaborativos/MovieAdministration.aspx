@@ -71,18 +71,18 @@
                                         <div class="col-md-3 contact-right">
                                             <select class="form-control" runat="server" id="fromYear" tabindex="1" style="width:100%;">
                                                 <option selected="selected" value="">Mes</option>
-                                                <option value="01">01</option>
-                                                <option value="02">02</option>
-                                                <option value="03">03</option>
-                                                <option value="04">04</option>
-                                                <option value="05">05</option>
-                                                <option value="06">06</option>
-                                                <option value="07">07</option>
-                                                <option value="08">08</option>
-                                                <option value="09">09</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
+                                                <option value="01">Enero</option>
+                                                <option value="02">Febrero</option>
+                                                <option value="03">Marzo</option>
+                                                <option value="04">Abril</option>
+                                                <option value="05">Mayo</option>
+                                                <option value="06">Junio</option>
+                                                <option value="07">Julio</option>
+                                                <option value="08">Agosto</option>
+                                                <option value="09">Setiembre</option>
+                                                <option value="10">Octubre</option>
+                                                <option value="11">Noviembre</option>
+                                                <option value="12">Diciembre</option>
                                             </select>
                                         </div>
                                     </div>
@@ -129,18 +129,18 @@
                                         <div class="col-md-3 contact-right">
                                             <select class="form-control" runat="server" id="toYear" tabindex="1" style="width:100%;">
                                                 <option selected="selected" value="">Mes</option>
-                                                <option value="01">01</option>
-                                                <option value="02">02</option>
-                                                <option value="03">03</option>
-                                                <option value="04">04</option>
-                                                <option value="05">05</option>
-                                                <option value="06">06</option>
-                                                <option value="07">07</option>
-                                                <option value="08">08</option>
-                                                <option value="09">09</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
+                                                <option value="01">Enero</option>
+                                                <option value="02">Febrero</option>
+                                                <option value="03">Marzo</option>
+                                                <option value="04">Abril</option>
+                                                <option value="05">Mayo</option>
+                                                <option value="06">Junio</option>
+                                                <option value="07">Julio</option>
+                                                <option value="08">Agosto</option>
+                                                <option value="09">Setiembre</option>
+                                                <option value="10">Octubre</option>
+                                                <option value="11">Noviembre</option>
+                                                <option value="12">Diciembre</option>
                                                 
                                             </select>
                                         </div>

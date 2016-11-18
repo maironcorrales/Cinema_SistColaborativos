@@ -39,5 +39,20 @@ namespace CinemaColaborativos
         {
 
         }
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmReportes.aspx");
+        }
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            fromDay.SelectedIndex = 0;
+            fromYear.SelectedIndex = 0;
+            toYear.SelectedIndex =0;
+            ToDay.SelectedIndex = 0;
+            DrpListGenero.SelectedIndex = 0;
+            txtNombre.Text = "";
+
+        } 
     }
+
 }

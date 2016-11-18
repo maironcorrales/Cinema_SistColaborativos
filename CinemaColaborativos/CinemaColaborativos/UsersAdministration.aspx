@@ -17,17 +17,24 @@
                         <h2>Crear Nuevo Usuario Administrador</h2><br />
                      </div>
                      <div class="form-group">
-                         <input runat="server" id="mail" type="text" placeholder="Correo" class="form-control" style="width:80%;" required /> <br />
-                         <input runat="server" id="phonenumber" type="text" placeholder="Teléfono" class="form-control" style="width:80%;" required />
+                         <br />
+                         <br />
+                         <input runat="server" id="nombre" type="text" placeholder="Nombre" class="form-control" style="width:80%;"  /><br />
+                         <input runat="server" id="mail" type="text" placeholder="Correo" class="form-control" style="width:80%;"  /> <br />
+                         <input runat="server" id="phonenumber" type="text" placeholder="Teléfono" class="form-control" style="width:80%;"  />
                          <a  runat="server" id="CreateUser" class="button play-icon popup-with-zoom-anim" style="width:20%;text-align:center;" onserverclick="CreateUser_ServerClick">Crear</a>
                          <asp:Button ID="processbtn" runat="server" Style="visibility:hidden"/>
                      </div>
                      
 				  </div>
 				  <div class="col-md-6 contact-right">
-                      <h2>Modificar datos de Usuario Actual</h2><br />
-                      <input runat="server" id="MailToEdit" type="text" class="form-control" style="width:80%;" required /> <br />
-                      <input runat="server" id="PhoneToEdit" type="text" class="form-control" style="width:80%;" required />
+                      <h2>Modificar datos de Usuario Actual</h2>
+                      <p>&nbsp;</p>
+                      <br />
+                      <br />
+                         <input runat="server" id="nombreModificar" type="text" placeholder="Nombre" class="form-control" style="width:80%;"  /><br />
+                      <input runat="server" id="MailToEdit" type="text" class="form-control" style="width:80%;" disabled /> <br />
+                      <input runat="server" id="PhoneToEdit" type="text" class="form-control" style="width:80%;"  />
                       <a class="button play-icon popup-with-zoom-anim" runat="server" id="SaveUser" onserverclick="SaveUser_ServerClick" style="width:20%;text-align:center;">Guardar</a>
                       <asp:Button ID="saveProcessBtn" runat="server" Style="visibility:hidden"/>	 
 				 </div>
@@ -59,6 +66,7 @@
 				<p>Usuarios Administradores</p>
                     <table cellspacing="0">
                     <tr>
+                        <th style="width:20%">Nombre de usuario</th>
                         <th style="width:10%">Id de Usuario</th>
                         <th style="width:20%">Correo</th>
                         <th style="width:20%">Número Telefónico</th>
@@ -72,6 +80,7 @@
                         <asp:Repeater id="AdminUserRepeater" runat="server" OnItemDataBound="AdminUserRepeater_ItemDataBound" OnItemCommand="AdminUserRepeater_ItemCommand">
                         <ItemTemplate>
                             <tr runat="server">
+                                <td><asp:Label runat="server" ID="nombreModificar"/></td>
                                 <td><asp:Label runat="server" ID="UserID"/></td>
                                 <td><asp:Label runat="server" ID="UserMail"/></td>
                                 <td><asp:Label runat="server" ID="UserPhone"/></td>
@@ -83,12 +92,17 @@
                         </ItemTemplate>
                         </asp:Repeater>                   
                 </table>
+			        <br />
+                    <br />
+                    
+                    <br />
 			</div>	
             </div>
 
        
         </div>
-
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Button ID="btnRegresar" runat="server" BackColor="Black" CssClass="btn" ForeColor="White" OnClick="btnRegresar_Click"  PostBackUrl="~/UsersAdministration.aspx" Text="Regresar" />
     <style type="text/css">
             .modalBackground {
                 background-color: Black;

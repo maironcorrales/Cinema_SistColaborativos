@@ -5,6 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
     <title>Cinema</title>
    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
@@ -23,6 +24,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <asp:ContentPlaceHolder ID="head" runat="server">
             
     </asp:ContentPlaceHolder>
+ 
 </head>
 <body>
     <div class="full">
@@ -32,21 +34,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="videos.html"><div class="video"><i class="videos"></i><i class="videos1"></i></div></a></li>
 					<li><a href="reviews.html"><div class="cat"><i class="watching"></i><i class="watching1"></i></div></a></li>
 					<li><a href="Login.aspx"><div class="bk"><i class="booking"></i><i class="booking1"></i></div></a></li>
-					<li><a href="contact.html"><div class="cnt"><i class="contact"></i><i class="contact1"></i></div></a></li>
+					<li><a href="frmConsultaHistoriaPeliculas.aspx"><div class="cnt"><i class="contact"></i><i class="contact1"></i></div></a></li>
 				</ul>
 			</div>
 		<div class="main">
             <div class="top-header span_top">
 				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" alt="" /></a>
-					<p>Movie Theater</p>
+					<a href="home.aspx"><img src="images/logo.png" alt="" /></a>
+					<p>Cine Colaborativos</p>
 				</div>
 				<div class="search v-search">
-					<p runat="server" id="username"></p>
+					<p runat="server" id="username" onclick=""></p>
+                    <a runat="server" id="link" href="Login.aspx" onclick="ingresar">Ingresar</a>
 				</div>
-				<div class="clearfix"></div>
+				<div class="clearfix">
+                 
+
+				</div>
 			</div>
-		
 		
     <form id="form1" runat="server">
 
@@ -111,4 +116,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         </style>
 </body>
+
+
 </html>

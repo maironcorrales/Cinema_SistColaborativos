@@ -21,13 +21,36 @@ namespace CinemaColaborativos
             int cantidadSillas = 0;
             Business.TheaterBusiness m = new Business.TheaterBusiness();
             List<sala> salas = new List<sala>();
-            if (int.TryParse(txtCantidadSillas.Text, out cantidadSillas))
+            if (txtCantidadSillas.Text == "")
             {
-                salas = m.consultarSala(DrpListTipo.SelectedValue, cantidadSillas, chkEstado.Checked);
+                salas = m.consultarSala(DrpListTipo.SelectedValue, 0, chkEstado.Checked);
                 resultado.DataSource = salas;
                 resultado.DataBind();
                 resultado.Visible = true;
             }
+            else
+            {
+                if (int.TryParse(txtCantidadSillas.Text, out cantidadSillas))
+                {
+                    salas = m.consultarSala(DrpListTipo.SelectedValue, cantidadSillas, chkEstado.Checked);
+                    resultado.DataSource = salas;
+                    resultado.DataBind();
+                    resultado.Visible = true;
+                }
+            }
+            
+        }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCantidadSillas.Text = "";
+            DrpListTipo.SelectedIndex = 0;
+            chkEstado.Checked= true;
+        }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmReportes.aspx");
         }
     }
 }

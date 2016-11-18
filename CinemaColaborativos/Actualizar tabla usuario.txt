@@ -1,0 +1,2 @@
+alter table usuario
+add nombre varchar(8000)

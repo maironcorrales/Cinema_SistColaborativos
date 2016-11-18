@@ -32,7 +32,7 @@ namespace CinemaColaborativos
                     UserBusiness userBusiness = new UserBusiness();
                     if (userBusiness.loginUser(obj.ElementAt(0).email) == null)
                     {
-                        userBusiness.Createuser(obj.ElementAt(0).email, obj.ElementAt(0).birthday, obj.ElementAt(0).phone);
+                        userBusiness.Createuser(obj.ElementAt(0).email, obj.ElementAt(0).birthday, obj.ElementAt(0).phone, obj.ElementAt(0).first_name);
                         Session["USER"] = userBusiness.loginUser(obj.ElementAt(0).email);
                     }
                     else

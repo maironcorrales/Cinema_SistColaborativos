@@ -146,6 +146,7 @@
     <Content Include="css\Grid.css" />
     <Content Include="css\jquery-ui-1.8.19.custom.css" />
     <Content Include="css\Seat.css" />
+    <Content Include="css\style.css" />
     <Content Include="css\tableStyle.css" />
     <Content Include="EditMovie.aspx" />
     <Content Include="EditProjection.aspx" />
@@ -153,6 +154,8 @@
     <Content Include="frmConsultaHistoriaPeliculas.aspx" />
     <Content Include="frmReporteFactura.aspx" />
     <Content Include="frmReportePeliculas.aspx" />
+    <Content Include="frmReporteProyeccion.aspx" />
+    <Content Include="frmReportes.aspx" />
     <Content Include="frmReporteSalas.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="images\calendar-lt.png" />
@@ -309,6 +312,20 @@
     </Compile>
     <Compile Include="frmReportePeliculas.aspx.designer.cs">
       <DependentUpon>frmReportePeliculas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteProyeccion.aspx.cs">
+      <DependentUpon>frmReporteProyeccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReporteProyeccion.aspx.designer.cs">
+      <DependentUpon>frmReporteProyeccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportes.aspx.cs">
+      <DependentUpon>frmReportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReportes.aspx.designer.cs">
+      <DependentUpon>frmReportes.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmReporteSalas.aspx.cs">
       <DependentUpon>frmReporteSalas.aspx</DependentUpon>
