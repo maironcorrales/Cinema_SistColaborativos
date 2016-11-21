@@ -38,6 +38,8 @@
           <Property Name="estado_proyeccion" Type="bit" />
           <Property Name="pelicula_id_pelicula" Type="int" Nullable="false" />
           <Property Name="sala_id_sala" Type="int" Nullable="false" />
+          <Property Name="fechaInicio" Type="datetime" />
+          <Property Name="fechaFinal" Type="datetime" />
         </EntityType>
         <EntityType Name="reservacion">
           <Key>
@@ -308,6 +310,8 @@
           <NavigationProperty Name="pelicula" Relationship="Self.FK__proyeccio__pelic__173876EA" FromRole="proyeccion" ToRole="pelicula" />
           <NavigationProperty Name="sala" Relationship="Self.FK__proyeccio__sala___182C9B23" FromRole="proyeccion" ToRole="sala" />
           <NavigationProperty Name="reservacion" Relationship="Self.FK__reservaci__proye__1BFD2C07" FromRole="proyeccion" ToRole="reservacion" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="fechaFinal" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="reservacion">
           <Key>
@@ -581,6 +585,8 @@
           <EntitySetMapping Name="proyeccion">
             <EntityTypeMapping TypeName="CinemaProjectModel.proyeccion">
               <MappingFragment StoreEntitySet="proyeccion">
+                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
                 <ScalarProperty Name="id_proyeccion" ColumnName="id_proyeccion" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="hora" ColumnName="hora" />

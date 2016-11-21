@@ -13,6 +13,15 @@ namespace CinemaColaborativos {
     public partial class frmReportePeliculas {
         
         /// <summary>
+        /// btnRegresar0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegresar0;
+        
+        /// <summary>
         /// txtNombre control.
         /// </summary>
         /// <remarks>
@@ -29,42 +38,6 @@ namespace CinemaColaborativos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DrpListGenero;
-        
-        /// <summary>
-        /// fromDay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect fromDay;
-        
-        /// <summary>
-        /// fromYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect fromYear;
-        
-        /// <summary>
-        /// ToDay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ToDay;
-        
-        /// <summary>
-        /// toYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect toYear;
         
         /// <summary>
         /// btnBuscar control.

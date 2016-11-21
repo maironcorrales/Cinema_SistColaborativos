@@ -34,8 +34,44 @@ namespace CinemaColaborativos
             DataTable dt = new DataTable();
             DataSet ds = new DataSet();
             string nombrePelicula = ddlPeliculas.SelectedItem.ToString();
-            dt = p.consultaProyeccion(nombrePelicula);
-            ds.Tables.Add(dt);
+            DateTime fechaDesde = calDesde.SelectedDate;
+            DateTime fechaHasta = calHasta.SelectedDate;
+            if (fechaHasta.ToString() == "01/01/0001 12:00:00 a.m.")
+            {
+                fechaHasta = DateTime.ParseExact("2085-12-31 14:40:52,531", "yyyy-MM-dd HH:mm:ss,fff",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+            }
+                dt = p.consultaProyeccion(nombrePelicula,fechaDesde,fechaHasta);
+            int i = 0;
+            string idPelicula = "";
+            idPelicula = dt.Rows[0]["id_pelicula"].ToString();
+            string horarios="";
+            Image ima = new Image();
+            DataTable resultados = new DataTable();
+            resultados.Columns.Add("banner");
+            resultados.Columns.Add("nombre", typeof(string));
+            resultados.Columns.Add("horarios", typeof(string));
+            for (i = 0; i < dt.Rows.Count; i++)
+            {
+                if (idPelicula == dt.Rows[i]["id_pelicula"].ToString())
+                {
+
+                    horarios += "* Número Sala " + dt.Rows[i]["id_sala"].ToString() + " tipo "+ dt.Rows[i]["tipo_sala"].ToString() + " Fecha y hora: " + dt.Rows[i]["fechaInicio"].ToString() ;
+
+                }
+                else
+                {
+
+                    resultados.Rows.Add(dt.Rows[i-1]["foto"], dt.Rows[i-1]["nombre"].ToString(), horarios);
+                    idPelicula = dt.Rows[i]["id_pelicula"].ToString();
+
+                    horarios = "* Número Sala " + dt.Rows[i]["id_sala"].ToString() + " tipo " + dt.Rows[i]["tipo_sala"].ToString() + " Fecha y hora: " + dt.Rows[i]["fechaInicio"].ToString();
+
+                }
+
+            }
+            resultados.Rows.Add(dt.Rows[dt.Rows.Count - 1]["foto"], dt.Rows[dt.Rows.Count - 1]["nombre"].ToString(), horarios);
+            ds.Tables.Add(resultados);
             resultado.DataSource = ds;
             resultado.DataBind();
             resultado.Visible = true;

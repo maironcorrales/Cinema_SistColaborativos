@@ -13,6 +13,15 @@ namespace CinemaColaborativos {
     public partial class frmReporteProyeccion {
         
         /// <summary>
+        /// btnRegresar2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegresar2;
+        
+        /// <summary>
         /// ddlPeliculas control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,24 @@ namespace CinemaColaborativos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPeliculas;
+        
+        /// <summary>
+        /// calDesde control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calDesde;
+        
+        /// <summary>
+        /// calHasta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calHasta;
         
         /// <summary>
         /// btnBuscar control.

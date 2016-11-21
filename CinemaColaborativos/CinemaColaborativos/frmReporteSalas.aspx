@@ -7,9 +7,13 @@
             <div class="form-group">
          <h3 class="head">Reporte de salas</h3>
                 <br />
+                             <asp:Button ID="btnRegresar0" runat="server" BackColor="Black" CssClass="btn" ForeColor="White" OnClick="btnRegresar_Click"  PostBackUrl="~/frmReporteSalas.aspx" Text="Regresar" />
+                    <br />
                 <br />
                 Cantidad de sillas:
-                         &nbsp;<asp:TextBox ID="txtCantidadSillas" onkeypress="return isNumberKey(event)" runat="server" Height="100%" Width="100%"></asp:TextBox>
+                         &nbsp;<br />
+                Desde <asp:TextBox ID="txtCantidadSillasDesde" onkeypress="return isNumberKey(event)" runat="server" Height="100%" Width="3%">0</asp:TextBox>
+                &nbsp;Hasta <asp:TextBox ID="txtCantidadSillasHasta" onkeypress="return isNumberKey(event)" runat="server" Height="100%" Width="3%">30</asp:TextBox>
                 <br />
                 <br />Tipo de sala<br />
                 <asp:DropDownList ID="DrpListTipo" runat="server" Height="100%" Width="100%">
@@ -24,13 +28,11 @@
                 <asp:CheckBox ID="chkEstado" runat="server" Checked="True" Text="Activa" />
                 <br /></span>
                 <div class="form-group">
-                    <br />
-                    <br />
                     <br />&nbsp;<asp:Button ID="btnBuscar" runat="server" BackColor="Black" CssClass="btn" ForeColor="White" OnClick="btnBuscar_Click" Text="Buscar" OnUnload="btnBuscar_Click" PostBackUrl="~/frmReporteSalas.aspx" />
                     &nbsp; <asp:Button ID="btnLimpiarDatos" runat="server" BackColor="Black" CssClass="btn" ForeColor="White" OnClick="btnLimpiar_Click" Text="Limpiar" OnUnload="btnLimpiar_Click" PostBackUrl="~/frmReporteSalas.aspx" />
                     <br />
                     <br />
-                    <asp:GridView ID="resultado" runat="server" AutoGenerateColumns="False"  Visible="False" ForeColor="Black" Height="141px" Width="1288px">
+                    <asp:GridView ID="resultado" runat="server" AutoGenerateColumns="False"  Visible="False" ForeColor="Black" Height="100%" Width="100%">
                         <Columns>
                             <asp:BoundField DataField="id_sala" HeaderText="Número de sala" />
                             <asp:BoundField DataField="tipo_sala" HeaderText="Tipo de sala" />

@@ -13,6 +13,15 @@ namespace CinemaColaborativos {
     public partial class frmReporteFactura {
         
         /// <summary>
+        /// btnRegresar0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegresar0;
+        
+        /// <summary>
         /// txtNumeroFactura control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,24 @@ namespace CinemaColaborativos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumeroFactura;
+        
+        /// <summary>
+        /// txtCorreoElectronico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCorreoElectronico;
+        
+        /// <summary>
+        /// ddlPeliculas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPeliculas;
         
         /// <summary>
         /// btnBuscar control.

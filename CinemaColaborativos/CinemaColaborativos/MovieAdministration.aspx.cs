@@ -48,7 +48,7 @@ namespace CinemaColaborativos
             movie.nombre = movieName.Value;
             movie.duracion = movieTime.Value;
             movie.genero = movieGender.Value;
-            movie.rango_fechas = fromDay.Value + "/" + fromYear.Value + " - " + ToDay.Value + "/" + toYear.Value;
+            movie.rango_fechas = "";
             movie.resumen = movieDescription.Value;
             movie.foto = "MovieImages/" + fileToSave.FileName;
             if (movie.nombre != null && movie.duracion != null && movie.genero != null && movie.rango_fechas != null && movie.foto != null)
@@ -80,10 +80,6 @@ namespace CinemaColaborativos
             movieTime.Value = "";
             movieGender.Value = "";
             movieDescription.Value = "";
-            fromDay.Value = "";
-            fromYear.Value = "";
-            ToDay.Value = "";
-            toYear.Value = "";
             fileToSave = null;
             uploadedImage.Attributes.Add("src", "images/placeholder.gif");
         }

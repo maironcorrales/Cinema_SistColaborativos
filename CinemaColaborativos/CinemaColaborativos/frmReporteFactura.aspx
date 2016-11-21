@@ -6,8 +6,20 @@
         <div class="form-group">
             <h3 class="head">Impresión de factura</h3>
             <br />
+                             <asp:Button ID="btnRegresar0" runat="server" BackColor="Black" CssClass="btn" ForeColor="White" OnClick="btnRegresar_Click"  PostBackUrl="~/frmReporteFactura.aspx" Text="Regresar" />
+                <br />
             <br />Ingrese el número de factura:
                          &nbsp;<asp:TextBox ID="txtNumeroFactura" onkeypress="return isNumberKey(event)" runat="server" Height="100%" Width="100%"></asp:TextBox>
+            <br />
+            <br />
+            Correo Electrónico:<br />
+            <asp:TextBox ID="txtCorreoElectronico"  runat="server" Height="100%" Width="100%"></asp:TextBox>
+            <br />
+            <br />
+            Película:<br />
+            <asp:DropDownList ID="ddlPeliculas" runat="server" Height="100%"  Width="100%">
+        <asp:ListItem>Seleccione una película</asp:ListItem>
+    </asp:DropDownList>
             <br />
             <div class="form-group">
                 &nbsp;<br />
@@ -15,7 +27,7 @@
                 &nbsp; <asp:Button ID="btnLimpiarDatos" runat="server" BackColor="Black" CssClass="btn" ForeColor="White" OnClick="btnLimpiar_Click" Text="Limpiar" OnUnload="btnLimpiar_Click" PostBackUrl="~/frmReporteFactura.aspx" />
                 <br />
                 <br />
-                <asp:GridView ID="resultado" runat="server" AutoGenerateColumns="False"  Visible="False" ForeColor="Black" Height="141px" Width="1288px">
+                <asp:GridView ID="resultado" runat="server" AutoGenerateColumns="False"  Visible="False" ForeColor="Black" Height="100%" Width="100%">
                     <Columns>
                         <asp:BoundField DataField="genero" HeaderText="Género" />
                         <asp:BoundField DataField="nombre" HeaderText="Película" />

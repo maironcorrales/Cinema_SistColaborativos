@@ -70,47 +70,194 @@ namespace CinemaColaborativos.Business
         }
 
         //Método que me devuelve el detalle de una factura
-        public DataTable consultaFactura(int  idFactura)
+        public DataTable consultaFactura(int idFactura, string correo, string pelicula)
         {
             DataTable dt;
-            //Consulta que devuelve solo una factura
-            if (idFactura > 0){
-                var resultado = (from   pr in dbContex.proyeccion join
-                                        p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula join
-                                        r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion join
-                                        fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion join
-                                        rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion join
-                                        s in dbContex.sala on pr.sala_id_sala equals s.id_sala join
-                                        si in dbContex.silla on rs.silla_id_silla equals si.id_silla join
-                                        u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
-                                 where  p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario && fa.id_factura == idFactura
-                                 select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo,p.foto }
-                                 ).ToList();
+            if (idFactura > 0 && correo == "" && pelicula == "")
+            {
+                var resultado = (from pr in dbContex.proyeccion
+                                 join
+      p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula
+                                 join
+r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion
+                                 join
+fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion
+                                 join
+rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion
+                                 join
+s in dbContex.sala on pr.sala_id_sala equals s.id_sala
+                                 join
+si in dbContex.silla on rs.silla_id_silla equals si.id_silla
+                                 join
+u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
+                                 where p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario && fa.id_factura == idFactura
+                                 select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo, p.foto }
+                                ).ToList();
                 dt = LINQToDataTable(resultado);
                 return dt;
-
             }
             else
             {
-                //Consulta que devuelve todas las facturas registradas en el sistema
-                var resultado = (from   pr in dbContex.proyeccion join
-                                        p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula join
-                                        r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion join
-                                        fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion join
-                                        rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion join
-                                        s in dbContex.sala on pr.sala_id_sala equals s.id_sala join
-                                        si in dbContex.silla on rs.silla_id_silla equals si.id_silla join
-                                        u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
-                                 where  p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario 
-                                 select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo,p.foto }
-                 ).ToList();
-                 dt = LINQToDataTable(resultado);
-                return dt;
+                if (idFactura == 0 && correo == "" && pelicula == "")
+                {
+                    var resultado = (from pr in dbContex.proyeccion
+                                     join
+          p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula
+                                     join
+    r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion
+                                     join
+    fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion
+                                     join
+    rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion
+                                     join
+    s in dbContex.sala on pr.sala_id_sala equals s.id_sala
+                                     join
+    si in dbContex.silla on rs.silla_id_silla equals si.id_silla
+                                     join
+    u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
+                                     where p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario
+                                     select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo, p.foto }
+                                ).ToList();
+                    dt = LINQToDataTable(resultado);
+                    return dt;
+
+                }else
+                {
+                    if (idFactura > 0 && correo != "" && pelicula == "")
+                    {
+                        var resultado = (from pr in dbContex.proyeccion
+                                         join
+              p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula
+                                         join
+        r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion
+                                         join
+        fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion
+                                         join
+        rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion
+                                         join
+        s in dbContex.sala on pr.sala_id_sala equals s.id_sala
+                                         join
+        si in dbContex.silla on rs.silla_id_silla equals si.id_silla
+                                         join
+        u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
+                                         where p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario && u.correo==correo && fa.id_factura ==idFactura
+                                         select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo, p.foto }
+                                    ).ToList();
+                        dt = LINQToDataTable(resultado);
+                        return dt;
+
+                    }
+                    else
+                    {
+                        if (idFactura > 0 && correo != "" && pelicula != "")
+                        {
+                            var resultado = (from pr in dbContex.proyeccion
+                                             join
+                  p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula
+                                             join
+            r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion
+                                             join
+            fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion
+                                             join
+            rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion
+                                             join
+            s in dbContex.sala on pr.sala_id_sala equals s.id_sala
+                                             join
+            si in dbContex.silla on rs.silla_id_silla equals si.id_silla
+                                             join
+            u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
+                                             where p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario && p.nombre == pelicula && fa.id_factura == idFactura && u.correo == correo
+                                             select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo, p.foto }
+                                        ).ToList();
+                            dt = LINQToDataTable(resultado);
+                            return dt;
+
+                        }
+                        else
+                        {
+                            if (idFactura > 0 && correo == "" && pelicula != "")
+                            {
+                                var resultado = (from pr in dbContex.proyeccion
+                                                 join
+                      p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula
+                                                 join
+                r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion
+                                                 join
+                fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion
+                                                 join
+                rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion
+                                                 join
+                s in dbContex.sala on pr.sala_id_sala equals s.id_sala
+                                                 join
+                si in dbContex.silla on rs.silla_id_silla equals si.id_silla
+                                                 join
+                u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
+                                                 where p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario && p.nombre == pelicula && fa.id_factura == idFactura
+                                                 select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo, p.foto }
+                                            ).ToList();
+                                dt = LINQToDataTable(resultado);
+                                return dt;
+
+                            }
+                            else
+                            {
+                                if (idFactura == 0 && correo != "" && pelicula != "")
+                                {
+                                    var resultado = (from pr in dbContex.proyeccion
+                                                     join
+                          p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula
+                                                     join
+                    r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion
+                                                     join
+                    fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion
+                                                     join
+                    rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion
+                                                     join
+                    s in dbContex.sala on pr.sala_id_sala equals s.id_sala
+                                                     join
+                    si in dbContex.silla on rs.silla_id_silla equals si.id_silla
+                                                     join
+                    u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
+                                                     where p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario && p.nombre == pelicula
+                                                     select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo, p.foto }
+                                                ).ToList();
+                                    dt = LINQToDataTable(resultado);
+                                    return dt;
+
+                                }
+                                else
+                                {
+                                    var resultado = (from pr in dbContex.proyeccion
+                                                     join
+                          p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula
+                                                     join
+                    r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion
+                                                     join
+                    fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion
+                                                     join
+                    rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion
+                                                     join
+                    s in dbContex.sala on pr.sala_id_sala equals s.id_sala
+                                                     join
+                    si in dbContex.silla on rs.silla_id_silla equals si.id_silla
+                                                     join
+                    u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
+                                                     where p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario 
+                                                     select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo, p.foto }
+                                             ).ToList();
+                                    dt = LINQToDataTable(resultado);
+                                    return dt;
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
+
         }
 
-
-        public DataTable consultaProyeccion(string nombrePelicula)
+        public DataTable consultaProyeccion(string nombrePelicula, DateTime fechaDesde, DateTime fechaHasta )
         {
             DataTable dt;
             //Consulta que devuelve solo la proyección de una película
@@ -120,8 +267,8 @@ namespace CinemaColaborativos.Business
                                 from p in dbContex.pelicula
                                 join pr in dbContex.proyeccion on p.id_pelicula equals pr.pelicula_id_pelicula join
                                 s in dbContex.sala on pr.sala_id_sala equals s.id_sala
-                                where p.nombre == nombrePelicula
-                                select new { p.genero, p.nombre, p.foto, p.resumen, pr.fecha, pr.hora, pr.estado_proyeccion,s.id_sala,s.tipo_sala, p.duracion }
+                                where p.nombre == nombrePelicula && pr.fechaInicio >= fechaDesde && pr.fechaInicio <= fechaHasta
+                                select new { p.genero, p.nombre, p.foto, p.resumen, pr.fecha, pr.hora, pr.estado_proyeccion,s.id_sala,s.tipo_sala, p.duracion, p.id_pelicula,pr.fechaInicio }
                                  ).ToList();
                 dt = LINQToDataTable(resultado);
                 return dt;
@@ -135,7 +282,7 @@ namespace CinemaColaborativos.Business
                                     from p in dbContex.pelicula join
                                     pr in dbContex.proyeccion on p.id_pelicula equals pr.pelicula_id_pelicula join
                                     s in dbContex.sala on pr.sala_id_sala equals s.id_sala
-                                    select new { p.genero, p.nombre, p.foto, p.resumen, pr.fecha, pr.hora, pr.estado_proyeccion, s.id_sala, s.tipo_sala,p.duracion }
+                                    select new { p.genero, p.nombre, p.foto, p.resumen, pr.fecha, pr.hora, pr.estado_proyeccion, s.id_sala, s.tipo_sala,p.duracion,p.id_pelicula,pr.fechaInicio }
                                     ).ToList();
                     dt = LINQToDataTable(resultado);
                     return dt;

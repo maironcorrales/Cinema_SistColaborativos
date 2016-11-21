@@ -26,6 +26,9 @@ namespace CinemaColaborativos
         public Nullable<bool> estado_proyeccion { get; set; }
         public int pelicula_id_pelicula { get; set; }
         public int sala_id_sala { get; set; }
+
+        public Nullable<System.DateTime> fechaInicio { get; set; }
+        public Nullable<System.DateTime> fechaFinal { get; set; }
     
         public virtual pelicula pelicula { get; set; }
         public virtual sala sala { get; set; }

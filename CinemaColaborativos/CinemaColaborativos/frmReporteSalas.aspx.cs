@@ -18,21 +18,22 @@ namespace CinemaColaborativos
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            int cantidadSillas = 0;
+            int cantidadSillasDesde = 0;
+            int cantidadSillasHasta = 0;
             Business.TheaterBusiness m = new Business.TheaterBusiness();
             List<sala> salas = new List<sala>();
-            if (txtCantidadSillas.Text == "")
+            if (txtCantidadSillasHasta.Text == "0")
             {
-                salas = m.consultarSala(DrpListTipo.SelectedValue, 0, chkEstado.Checked);
+                salas = m.consultarSala(DrpListTipo.SelectedValue, 0,0, chkEstado.Checked);
                 resultado.DataSource = salas;
                 resultado.DataBind();
                 resultado.Visible = true;
             }
             else
             {
-                if (int.TryParse(txtCantidadSillas.Text, out cantidadSillas))
+                if (int.TryParse(txtCantidadSillasDesde.Text, out cantidadSillasDesde) && int.TryParse(txtCantidadSillasHasta.Text, out cantidadSillasHasta))
                 {
-                    salas = m.consultarSala(DrpListTipo.SelectedValue, cantidadSillas, chkEstado.Checked);
+                    salas = m.consultarSala(DrpListTipo.SelectedValue, cantidadSillasDesde, cantidadSillasHasta, chkEstado.Checked);
                     resultado.DataSource = salas;
                     resultado.DataBind();
                     resultado.Visible = true;
@@ -43,7 +44,7 @@ namespace CinemaColaborativos
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtCantidadSillas.Text = "";
+            txtCantidadSillasDesde.Text = "";
             DrpListTipo.SelectedIndex = 0;
             chkEstado.Checked= true;
         }

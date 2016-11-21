@@ -13,13 +13,31 @@ namespace CinemaColaborativos {
     public partial class frmReporteSalas {
         
         /// <summary>
-        /// txtCantidadSillas control.
+        /// btnRegresar0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantidadSillas;
+        protected global::System.Web.UI.WebControls.Button btnRegresar0;
+        
+        /// <summary>
+        /// txtCantidadSillasDesde control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCantidadSillasDesde;
+        
+        /// <summary>
+        /// txtCantidadSillasHasta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCantidadSillasHasta;
         
         /// <summary>
         /// DrpListTipo control.

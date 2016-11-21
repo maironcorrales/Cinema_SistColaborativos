@@ -4,10 +4,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h3 class="head">Reporte de proyecciones</h3>
     <br />
+        <asp:Button ID="btnRegresar2" runat="server" BackColor="Black" CssClass="btn" ForeColor="White" OnClick="btnRegresar_Click"  PostBackUrl="~/frmReporteProyeccion.aspx" Text="Regresar" />
     <br />Selecciona una película:<br />
                          &nbsp;<asp:DropDownList ID="ddlPeliculas" runat="server" Height="35px" OnSelectedIndexChanged="ddlPeliculas_SelectedIndexChanged" Width="797px">
         <asp:ListItem>Seleccione una película</asp:ListItem>
     </asp:DropDownList>
+    <br />
+    <br />
+    Seleccione un rango de fechas<br />
+    <br />
+    Desde<br />
+    <asp:Calendar ID="calDesde" runat="server"></asp:Calendar>
+    <br />
+    Hasta<br />
+    <br />
+    <asp:Calendar ID="calHasta" runat="server"></asp:Calendar>
     <br />
     <div class="form-group">
                 &nbsp;<br />
@@ -16,19 +27,13 @@
         <asp:Button ID="btnLimpiarDatos" runat="server" BackColor="Black" CssClass="btn" ForeColor="White" OnClick="btnLimpiar_Click" Text="Limpiar" OnUnload="btnLimpiar_Click" PostBackUrl="~/frmReporteProyeccion.aspx" />
         <br />
         <br />
-        <asp:GridView ID="resultado" runat="server" AutoGenerateColumns="False"  Visible="False" ForeColor="Black" Height="141px" Width="1288px">
+        <asp:GridView ID="resultado" runat="server" AutoGenerateColumns="False"  Visible="False" ForeColor="Black" Height="100%" Width="100%">
             <Columns>
-                   <asp:ImageField DataImageUrlField ="foto">
-                     <ControlStyle Height="80%" Width="100%" />
+                   <asp:ImageField DataImageUrlField ="banner">
+                     <ControlStyle Height="80%" Width="35%" />
                  </asp:ImageField>
                 <asp:BoundField DataField="nombre" HeaderText="Película" />
-                <asp:BoundField DataField="resumen" HeaderText="Resumen" />
-                <asp:BoundField DataField="duracion" HeaderText="Minutos" />
-                <asp:BoundField DataField="genero" HeaderText="Género" />
-                <asp:BoundField DataField="fecha" HeaderText="Fecha" />
-                <asp:BoundField DataField="hora" HeaderText="Hora" />
-                <asp:BoundField DataField="id_sala" HeaderText="Número de sala" />
-                <asp:BoundField DataField="tipo_sala" HeaderText="Sala" />
+                   <asp:BoundField DataField="horarios" HeaderText="Detalle" />
             </Columns>
             <HeaderStyle BackColor="Silver" BorderColor="#666666" BorderStyle="Solid" Font-Bold="True" Font-Size="Medium" />
         </asp:GridView>

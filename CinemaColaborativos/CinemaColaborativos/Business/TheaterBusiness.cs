@@ -14,12 +14,12 @@ namespace CinemaColaborativos.Business
         }
 
         //Retorna las películas que coninciden con los parámetros
-        public List<sala> consultarSala(string tipo, int cantidad, bool estado)
+        public List<sala> consultarSala(string tipo, int cantidadDesde, int cantidadHasta, bool estado)
         {
             List<sala> salas = new List<sala>();
-            if (cantidad > 0)
+            if (cantidadHasta > 0)
             {
-                return DbContext.sala.Where(m => m.tipo_sala == tipo && m.numero_asientos == cantidad && m.estado == estado).ToList();
+                return DbContext.sala.Where(m => m.tipo_sala == tipo && m.numero_asientos >= cantidadDesde && m.numero_asientos <= cantidadHasta && m.estado == estado).ToList();
             }
             else
             {

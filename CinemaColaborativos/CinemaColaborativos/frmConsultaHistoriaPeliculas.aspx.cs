@@ -21,7 +21,7 @@ namespace CinemaColaborativos
             DataTable dt = new DataTable();
             DataSet ds = new DataSet();
 
-            dt = p.consultaFactura(0);
+            dt = p.consultaFactura(0,"","");
             ds.Tables.Add(dt);
             resultado.DataSource = ds;
             resultado.DataBind();
