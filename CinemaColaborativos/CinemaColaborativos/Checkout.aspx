@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cinema.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="CinemaColaborativos.Checkout" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cinema.Master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="CinemaColaborativos.Checkout" EnableEventValidation="false" ValidateRequest="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
@@ -10,21 +10,21 @@
                             <div class="col-md-6 contact-left">
                                 <div class="form-group">
 
-                                    <input runat="server" type="text" aria-describedby="basic-addon2" placeholder="Correo electrónico" id="Correo" style="width:80%;" class="form-control" required />
+                                    <input runat="server" type="text" aria-describedby="basic-addon2" placeholder="Correo electrónico" style="width:315px;" id="Correo" class="form-control" required />
                                     <br />
-                                    <input runat="server" type="text" placeholder="Nombre de la tarjeta" style="width:80%;" id="NombreTarjeta" class="form-control" required />
+                                    <input runat="server" type="text" placeholder="Nombre de la tarjeta" style="width:315px;" id="NombreTarjeta" class="form-control" required />
                                     <br />
-                                    <input runat="server" type="text" placeholder="Numero de la tarjeta" style="width:80%;" id="NumeroTarjeta" class="form-control" required />
+                                    <input runat="server" type="number" placeholder="Numero de la tarjeta" style="width:315px;" id="NumeroTarjeta" class="form-control" required />
                                     <br />
-                                    <input runat="server" type="text" placeholder="Código de seguridad de la tarjeta" id="CodigoSeguridad" style="width:80%;" class="form-control" required />
+                                    <input runat="server" type="number" placeholder="Código de seguridad de la tarjeta" style="width:315px;" id="CodigoSeguridad" class="form-control" required />
                                     <br />
-                                    <input runat="server" type="text" placeholder="Teléfono" class="form-control" style="width:80%;" id="Telefono" required />
+                                    <input runat="server" type="number" placeholder="Teléfono" class="form-control" id="Telefono" style="width:315px;" required />
                                 </div>
                                 <span id="lblExpiryDate" class="">Fecha de vencimiento:</span>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-2 contact-left">
-                                            <select runat="server" class="form-control" name="dropCardExpiryMonth" id="dropCardExpiryMonth" tabindex="1" style="width:100%;">
+                                            <select class="form-control" runat="server" name="dropCardExpiryMonth" id="dropCardExpiryMonth" tabindex="1" style="width:70px;" required>
                                                 <option selected="selected" value="">Día</option>
                                                 <option value="01">01</option>
                                                 <option value="02">02</option>
@@ -42,7 +42,7 @@
                                         </div>
                                        
                                         <div class="col-md-2 contact-right">
-                                            <select runat="server" class="form-control" name="dropCardExpiryYear" id="dropCardExpiryYear" tabindex="1" style="width:100%;">
+                                            <select class="form-control" runat="server" name="dropCardExpiryYear" id="dropCardExpiryYear" tabindex="1" style="width:100px;" required>
                                                 <option selected="selected" value="">Año</option>
                                                 <option value="2016">2016</option>
                                                 <option value="2017">2017</option>
@@ -62,22 +62,32 @@
                                     </div>
                                 </div>
                                     <div class="form-group">
-                                        <select runat="server" class="form-control" name="dropCardType" id="dropCardType" tabindex="1" style="width:80%;" onchange="SaveCardTypeSelected();">
+                                        <select class="form-control" runat="server" name="dropCardType" id="dropCardType" tabindex="1" style="width:315px;" onchange="SaveCardTypeSelected();" required>
                                             <option value="">Método de pago</option>
                                             <option value="Visa">Visa</option>
                                             <option value="Mastercard">Mastercard</option>
                                             <option value="Amex">American Express</option>
                                             <option value="Discover">Discover</option>
                                         </select>
+                                    </div>                               
+                                        <asp:Button ID="Button1" runat="server" Text="Pagar" onclick="Button1_Click" BorderColor="LightBlue" CssClass="button" />
                                     </div>
-                                    
-                                    <asp:Button ID="BuyBtn" runat="server" Text="Pagar" onclick="BuyBtn_Click" BorderColor="LightBlue" CssClass="btn-primary" />    
-                                    </div>
+                                        <div class="col-md-6 contact-right">
+                                            <img src="images/creditcards.jpg" style="width:100%;"/>
+                                        </div>
+                                      <div class="clearfix"></div>
+                                    <label runat="server" id="error" color="red"> </label>
+                                <div>
+                                           
+                                </div>
+
+                                </div>
+                            
                                     <div class="col-md-6 contact-right">
-                                        <img src="images/creditcards.jpg" style="width:100%;"/>
+  
+
                                     </div>
                                     <div class="clearfix"></div>
-                            <label runat="server" id="error" color="red"> </label>
 </form>
                     </div>
                 </div>

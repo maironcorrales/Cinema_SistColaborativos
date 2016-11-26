@@ -37,7 +37,7 @@ namespace CinemaColaborativos {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText NumeroTarjeta;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl NumeroTarjeta;
         
         /// <summary>
         /// CodigoSeguridad control.
@@ -46,7 +46,7 @@ namespace CinemaColaborativos {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CodigoSeguridad;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl CodigoSeguridad;
         
         /// <summary>
         /// Telefono control.
@@ -55,7 +55,7 @@ namespace CinemaColaborativos {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Telefono;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Telefono;
         
         /// <summary>
         /// dropCardExpiryMonth control.
@@ -85,13 +85,13 @@ namespace CinemaColaborativos {
         protected global::System.Web.UI.HtmlControls.HtmlSelect dropCardType;
         
         /// <summary>
-        /// BuyBtn control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuyBtn;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// error control.
