@@ -7,7 +7,7 @@ namespace CinemaColaborativos.Business
 {
     public class TheaterBusiness
     {
-        CinemaProjectEntities DbContext = new CinemaProjectEntities();
+        DB_A14118_colaborativosEntities DbContext = new DB_A14118_colaborativosEntities();
         public List<sala> GetAllTheaters()
         {
             return DbContext.sala.ToList();

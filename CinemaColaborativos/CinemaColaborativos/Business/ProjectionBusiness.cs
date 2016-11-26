@@ -9,7 +9,7 @@ namespace CinemaColaborativos.Business
 {
     public class ProjectionBusiness
     {
-        CinemaProjectEntities dbContex = new CinemaProjectEntities();
+        DB_A14118_colaborativosEntities dbContex = new DB_A14118_colaborativosEntities();
 
         public List<proyeccion> GetProjectionsWithMovieIDAsociated(int movieID)
         {

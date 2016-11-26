@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d11ed2b2c2eb45558061eea1fd3addcf" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_A14118_colaborativosModel.factura" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A14118_colaborativosModel.pelicula" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A14118_colaborativosModel.proyeccion" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A14118_colaborativosModel.reservacion" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A14118_colaborativosModel.reservacion_has_silla" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A14118_colaborativosModel.sala" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A14118_colaborativosModel.silla" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A14118_colaborativosModel.usuario" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__factura__reserva__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__factura__reserva__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__proyeccio__pelic__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__reservaci__proye__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__proyeccio__sala___20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__reservaci__proye__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__reservaci__reser__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__reservaci__usuar__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__reservaci__silla__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A14118_colaborativosModel.FK__silla__sala_id_s__1ED998B2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

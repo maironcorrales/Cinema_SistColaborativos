@@ -5,7 +5,7 @@ namespace CinemaColaborativos.Business
 {
     public class UserBusiness
     {
-        CinemaProjectEntities DbContext = new CinemaProjectEntities();
+        DB_A14118_colaborativosEntities DbContext = new DB_A14118_colaborativosEntities();
         public void Createuser(string mail,string birthday,string phone,string nombre)
         {
             usuario user = new usuario();

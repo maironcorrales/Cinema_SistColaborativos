@@ -13,10 +13,10 @@ namespace CinemaColaborativos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CinemaProjectEntities : DbContext
+    public partial class DB_A14118_colaborativosEntities : DbContext
     {
-        public CinemaProjectEntities()
-            : base("name=CinemaProjectEntities")
+        public DB_A14118_colaborativosEntities()
+            : base("name=DB_A14118_colaborativosEntities")
         {
         }
     

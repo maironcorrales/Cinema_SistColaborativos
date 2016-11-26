@@ -6,7 +6,7 @@ namespace CinemaColaborativos.Business
 
     public class MovieBusiness
     {
-        CinemaProjectEntities movieContext = new CinemaProjectEntities();
+        DB_A14118_colaborativosEntities movieContext = new DB_A14118_colaborativosEntities();
         public List<pelicula> getAllMovies()
         {
             List<pelicula> movieList = new List<pelicula>();

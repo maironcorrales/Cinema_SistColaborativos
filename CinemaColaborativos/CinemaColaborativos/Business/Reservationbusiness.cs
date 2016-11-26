@@ -8,7 +8,7 @@ namespace CinemaColaborativos.Business
 
     public class Reservationbusiness
     {
-        CinemaProjectEntities reservationContex = new CinemaProjectEntities();
+        DB_A14118_colaborativosEntities reservationContex = new DB_A14118_colaborativosEntities();
 
 
         public List<reservacion> getAllreservations()

@@ -130,15 +130,15 @@
   <ItemGroup>
     <Content Include="AdministrationPanel.aspx" />
     <Content Include="Checkout.aspx" />
-    <Content Include="CinemaProjectModel.Context.tt">
+    <Content Include="CinemaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
-      <LastGenOutput>CinemaProjectModel.Context.cs</LastGenOutput>
+      <DependentUpon>CinemaModel.edmx</DependentUpon>
+      <LastGenOutput>CinemaModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CinemaProjectModel.tt">
+    <Content Include="CinemaModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
-      <LastGenOutput>CinemaProjectModel.cs</LastGenOutput>
+      <DependentUpon>CinemaModel.edmx</DependentUpon>
+      <LastGenOutput>CinemaModel.cs</LastGenOutput>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -180,17 +180,18 @@
     <Content Include="MovieImages\iron-man.jpg" />
     <Content Include="MovieImages\superman.jpg" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="CinemaProjectModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CinemaProjectModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="CinemaProjectModel.edmx.diagram">
-      <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Cinema.Master" />
     <Content Include="Administration.Master" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="CinemaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CinemaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="CinemaModel.edmx.diagram">
+      <DependentUpon>CinemaModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\smarterFTP.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -260,20 +261,20 @@
     <Compile Include="Cinema.Master.designer.cs">
       <DependentUpon>Cinema.Master</DependentUpon>
     </Compile>
-    <Compile Include="CinemaProjectModel.Context.cs">
+    <Compile Include="CinemaModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CinemaProjectModel.Context.tt</DependentUpon>
+      <DependentUpon>CinemaModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CinemaProjectModel.cs">
+    <Compile Include="CinemaModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+      <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CinemaProjectModel.Designer.cs">
+    <Compile Include="CinemaModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CinemaProjectModel.edmx</DependentUpon>
+      <DependentUpon>CinemaModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="EditMovie.aspx.cs">
       <DependentUpon>EditMovie.aspx</DependentUpon>
@@ -290,7 +291,7 @@
       <DependentUpon>EditProjection.aspx</DependentUpon>
     </Compile>
     <Compile Include="factura.cs">
-      <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+      <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="frmConsultaHistoriaPeliculas.aspx.cs">
       <DependentUpon>frmConsultaHistoriaPeliculas.aspx</DependentUpon>
@@ -368,7 +369,7 @@
       <DependentUpon>MovieAdministration.aspx</DependentUpon>
     </Compile>
     <Compile Include="pelicula.cs">
-      <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+      <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Projection.aspx.cs">
       <DependentUpon>Projection.aspx</DependentUpon>
@@ -386,16 +387,16 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="proyeccion.cs">
-      <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+      <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="reservacion.cs">
-      <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+      <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="reservacion_has_silla.cs">
-      <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+      <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sala.cs">
-      <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+      <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SeatReservation.aspx.cs">
       <DependentUpon>SeatReservation.aspx</DependentUpon>
@@ -405,7 +406,7 @@
       <DependentUpon>SeatReservation.aspx</DependentUpon>
     </Compile>
     <Compile Include="silla.cs">
-      <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+      <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UsersAdministration.aspx.cs">
       <DependentUpon>UsersAdministration.aspx</DependentUpon>
@@ -415,7 +416,7 @@
       <DependentUpon>UsersAdministration.aspx</DependentUpon>
     </Compile>
     <Compile Include="usuario.cs">
-      <DependentUpon>CinemaProjectModel.tt</DependentUpon>
+      <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
