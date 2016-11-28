@@ -56,7 +56,7 @@ namespace CinemaColaborativos
                 movie.DeleteMovie(Convert.ToInt32(id.Value));
                 Response.Redirect("MovieAdministration.aspx");
             }
-            if (e.CommandName.Equals("Projection"))
+            if (e.CommandName.Equals("Projections"))
             {
                 HiddenField id = (HiddenField)e.Item.FindControl("movieID");
                 int idV = Convert.ToInt32(id.Value);

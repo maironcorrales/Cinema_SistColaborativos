@@ -10,9 +10,8 @@ namespace CinemaColaborativos
     {
         pelicula movie = new pelicula();
         TheaterBusiness theaterBusiness = new TheaterBusiness();
-        ProjectionBusiness projectionBusiness = new ProjectionBusiness();
         List<sala> list = new List<sala>();
-        List<proyeccion> projectionList = new List<proyeccion>();
+        ProjectionBusiness projectionBusiness = new ProjectionBusiness();
         int i = 0;
          
         protected void Page_Load(object sender, EventArgs e)
@@ -23,13 +22,10 @@ namespace CinemaColaborativos
                 movieProjection.InnerText = "Crear proyección para " + movie.nombre;
                 PopulateTheaterSelection();
                 list = theaterBusiness.GetAllTheaters();
-                projectionList = movie.proyeccion.ToList();
-                ProjectionRepeater.DataSource = projectionList;
-                ProjectionRepeater.DataBind();
+                
             }
             else
                 Response.Redirect("MovieAdministration.aspx");
-            projectionTittle.InnerText = "Todas las proyecciones para " + movie.nombre;
         }
 
         private void PopulateTheaterSelection()
@@ -68,66 +64,6 @@ namespace CinemaColaborativos
             {
                 message.InnerText = "Ha ocurrido un error, por favor intentelo más tarde.";
                 ModalPopupExtender1.Show();
-            }
-        }
-
-        protected void ProjectionRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                Label proID = (Label)e.Item.FindControl("ProID");
-                Label proDate = (Label)e.Item.FindControl("ProDate");
-                Label proTime = (Label)e.Item.FindControl("ProTime");
-                Label proTheater = (Label)e.Item.FindControl("ProTheater");
-                proID.Text = projectionList.ElementAt(i).id_proyeccion.ToString();
-                proDate.Text = projectionList.ElementAt(i).fecha;
-                proTime.Text = projectionList.ElementAt(i).hora;
-                proTheater.Text = projectionList.ElementAt(i).sala_id_sala.ToString();
-                LinkButton changeState = (LinkButton)e.Item.FindControl("changeStatus");
-                if (projectionList.ElementAt(i).estado_proyeccion == true)
-                    changeState.Text = "Activo";
-                else
-                    changeState.Text = "Inactivo";
-            }
-            i++;
-        }
-
-        protected void ProjectionRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName.Equals("ChangeStatus"))
-            {
-                Label id = (Label)e.Item.FindControl("ProID");
-                int idToSend = Convert.ToInt32(id.Text);
-                if (projectionBusiness.ChangeStatus(idToSend))
-                {
-                    message.InnerText = "Estado cambiado con éxito.";
-                    ModalPopupExtender1.Show();
-                }
-                else
-                {
-                    message.InnerText = "Ha ocurrido un error. Intentelo más tarde.";
-                    ModalPopupExtender1.Show();
-                }
-            }
-            if (e.CommandName.Equals("Delete"))
-            {
-                Label id = (Label)e.Item.FindControl("ProID");
-                int idToSend = Convert.ToInt32(id.Text);
-                if (projectionBusiness.DeleteProjection(idToSend))
-                {
-                    message.InnerText = "Se ha eliminado la projección correctaente.";
-                    ModalPopupExtender1.Show();
-                }
-                else
-                {
-                    message.InnerText = "Ha ocurrido un error. Intentelo más tarde.";
-                    ModalPopupExtender1.Show();
-                }
-            }
-            if (e.CommandName.Equals("Edit"))
-            {
-                Label id = (Label)e.Item.FindControl("ProID");
-                Response.Redirect("EditProjection.aspx?ProID=" + id.Text);
             }
         }
 

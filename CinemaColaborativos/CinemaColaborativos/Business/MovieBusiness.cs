@@ -60,6 +60,7 @@ namespace CinemaColaborativos.Business
                 result.duracion = movie.duracion;
                 result.foto = movie.foto;
                 result.resumen = movie.resumen;
+                result.rango_fechas = "";
             }
             if (movieContext.SaveChanges() == 1)
                 return true;

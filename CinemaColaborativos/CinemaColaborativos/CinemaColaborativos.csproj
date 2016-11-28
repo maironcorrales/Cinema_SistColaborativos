@@ -183,6 +183,7 @@
     <Content Include="packages.config" />
     <Content Include="Cinema.Master" />
     <Content Include="Administration.Master" />
+    <Content Include="ProjectionOptions.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="CinemaModel.edmx">
@@ -392,6 +393,13 @@
     </Compile>
     <Compile Include="ProjectionAdministration.aspx.designer.cs">
       <DependentUpon>ProjectionAdministration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectionOptions.aspx.cs">
+      <DependentUpon>ProjectionOptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectionOptions.aspx.designer.cs">
+      <DependentUpon>ProjectionOptions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="proyeccion.cs">
