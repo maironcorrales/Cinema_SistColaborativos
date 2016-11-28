@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdministrationPanel.aspx" />
+    <Content Include="AllMovieOptions.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="CinemaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="AdministrationPanel.aspx.designer.cs">
       <DependentUpon>AdministrationPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllMovieOptions.aspx.cs">
+      <DependentUpon>AllMovieOptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllMovieOptions.aspx.designer.cs">
+      <DependentUpon>AllMovieOptions.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

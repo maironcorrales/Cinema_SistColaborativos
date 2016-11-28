@@ -24,14 +24,14 @@ namespace CinemaColaborativos
 
         private void FillSpaces()
         {
-            List<string> dates = movieBusiness.SplitDate(movie.rango_fechas);
+            //List<string> dates = movieBusiness.SplitDate(movie.rango_fechas);
             movieName.Attributes.Add("placeholder", movie.nombre);
             movieGender.Value = movie.genero;
             timeOfMovie.Attributes.Add("placeholder", movie.duracion);
-            fromDay.Value = dates.ElementAt(0);
-            fromYear.Value = dates.ElementAt(1);
-            ToDay.Value = dates.ElementAt(2);
-            toYear.Value = dates.ElementAt(3);
+            //fromDay.Value = dates.ElementAt(0);
+            //fromYear.Value = dates.ElementAt(1);
+            //ToDay.Value = dates.ElementAt(2);
+            //toYear.Value = dates.ElementAt(3);
             movieDescription.Attributes.Add("placeholder", movie.resumen);
         }
 

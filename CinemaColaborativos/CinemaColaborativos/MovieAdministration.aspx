@@ -55,41 +55,9 @@
                                         <a id="btnAccept"  class="button play-icon popup-with-zoom-anim" style="width:30%; text-align:center; height:30%;"  runat="server">Aceptar</a>
                                     </asp:Panel>
 				 <div class="clearfix"></div>
+                 <a class="button play-icon popup-with-zoom-anim" style="width:20%;text-align:center;" href="AllMovieOptions.aspx">Peliculas</a>
 	     </div>    
          </div>
-         <div class="error-content">
-                <div class="error-404 text-center">
-				<p>Todas las películas</p>
-                    <table cellspacing="0">
-                    <tr>
-                        <th style="width:10%">Id</th>
-                        <th style="width:20%">Nombre</th>
-                        <th style="width:20%">Género</th>
-                        <th style="width:20%">Duración</th>
-                        <th style="width:20%">Rango de Fechas</th>
-                        <th style="width:20%">Acción</th>
-                        <th style="width:20%">Projección</th>
-                    </tr>
-                        
-                        <asp:Repeater id="AdminMovieRepeater" runat="server" OnItemDataBound="AdminMovieRepeater_ItemDataBound" OnItemCommand="AdminMovieRepeater_ItemCommand">
-                        <ItemTemplate>
-                            <tr runat="server">
-                                <td><asp:Label runat="server" ID="MovieID"/></td>
-                                <td><asp:Label runat="server" ID="MovieName"/></td>
-                                <td><asp:Label runat="server" ID="MovieGender"/></td>
-                                <td><asp:Label runat="server" ID="Duration"/></td>
-                                <td><asp:Label runat="server" ID="Dates" Visible="false"/>
-                                    <asp:HiddenField runat="server" ID="Description" />
-                                </td>
-                                <td><asp:LinkButton runat="server" CommandName="EditMovie" Text="Editar"></asp:LinkButton>
-                                <asp:LinkButton runat="server" CommandName="DeleteMovie" Text="Eliminar"></asp:LinkButton></td>
-                                <td><asp:LinkButton runat="server" ID="Projecction" CommandName="CreateProjection" Text="Ir a Projecciones"></asp:LinkButton></td>
-                            </tr>
-                        </ItemTemplate>
-                        </asp:Repeater>                   
-                </table>
-			</div>	
-            </div>
      </div>
     <style type="text/css">
             .modalBackground {

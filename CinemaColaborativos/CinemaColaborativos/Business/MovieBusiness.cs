@@ -29,16 +29,16 @@ namespace CinemaColaborativos.Business
 
         }
 
-        public List<string> SplitDate(string date)
-        {
-            List<string> dateArray = new List<string>();
-            string[] array = date.Split('/',' ','-',' ');
-            foreach(var element in array) 
-                dateArray.Add(element);
-            dateArray.RemoveAt(2);
-            dateArray.RemoveAt(2);
-            return dateArray;
-        }
+        //public List<string> SplitDate(string date)
+        //{
+        //    List<string> dateArray = new List<string>();
+        //    string[] array = date.Split('/',' ','-',' ');
+        //    foreach(var element in array) 
+        //        dateArray.Add(element);
+        //    dateArray.RemoveAt(2);
+        //    dateArray.RemoveAt(2);
+        //    return dateArray;
+        //}
 
         public bool DeleteMovie(int id)
         {
