@@ -141,6 +141,7 @@
       <DependentUpon>CinemaModel.edmx</DependentUpon>
       <LastGenOutput>CinemaModel.cs</LastGenOutput>
     </Content>
+    <Content Include="CinemaRooms.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -285,6 +286,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CinemaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CinemaRooms.aspx.cs">
+      <DependentUpon>CinemaRooms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CinemaRooms.aspx.designer.cs">
+      <DependentUpon>CinemaRooms.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditMovie.aspx.cs">
       <DependentUpon>EditMovie.aspx</DependentUpon>
