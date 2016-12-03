@@ -251,6 +251,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Business\CinemaBusiness.cs" />
     <Compile Include="Business\MovieBusiness.cs" />
     <Compile Include="Business\ProjectionBusiness.cs" />
     <Compile Include="Business\Reservationbusiness.cs" />
