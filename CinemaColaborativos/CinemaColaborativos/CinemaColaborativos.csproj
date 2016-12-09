@@ -154,6 +154,7 @@
     <Content Include="EditProjection.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="frmConsultaHistoriaPeliculas.aspx" />
+    <Content Include="frmReorganizacionTickets.aspx" />
     <Content Include="frmReporteFactura.aspx" />
     <Content Include="frmReportePeliculas.aspx" />
     <Content Include="frmReporteProyeccion.aspx" />
@@ -317,6 +318,13 @@
     </Compile>
     <Compile Include="frmConsultaHistoriaPeliculas.aspx.designer.cs">
       <DependentUpon>frmConsultaHistoriaPeliculas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReorganizacionTickets.aspx.cs">
+      <DependentUpon>frmReorganizacionTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReorganizacionTickets.aspx.designer.cs">
+      <DependentUpon>frmReorganizacionTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmReporteFactura.aspx.cs">
       <DependentUpon>frmReporteFactura.aspx</DependentUpon>

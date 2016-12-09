@@ -20,8 +20,9 @@ namespace CinemaColaborativos
             Business.ProjectionBusiness p = new Business.ProjectionBusiness();
             DataTable dt = new DataTable();
             DataSet ds = new DataSet();
-
-            dt = p.consultaFactura(0,"","");
+            usuario user = (usuario)Session["USER"];
+           
+            dt = p.consultaPeliculaPorUsuario(user.id_usuario);
             ds.Tables.Add(dt);
             resultado.DataSource = ds;
             resultado.DataBind();

@@ -12,14 +12,13 @@
                 <asp:Button ID="btnBuscar" runat="server" BackColor="Black" CssClass="btn" ForeColor="White" OnClick="btnBuscar_Click" Text="Buscar" OnUnload="btnBuscar_Click" PostBackUrl="~/frmConsultaHistoriaPeliculas.aspx" />
                 <br />
                 <br />
-                <asp:GridView ID="resultado" runat="server" AutoGenerateColumns="False"  Visible="False" ForeColor="Black" Height="141px" Width="1288px" OnRowDataBound="cargarDatos" OnSelectedIndexChanged="resultado_SelectedIndexChanged1" >
+                <asp:GridView ID="resultado" runat="server" AutoGenerateColumns="False"  Visible="False" ForeColor="Black" Height="100%" Width="100%" OnRowDataBound="cargarDatos" OnSelectedIndexChanged="resultado_SelectedIndexChanged1" >
                     <Columns>
                         <asp:ImageField DataImageUrlField ="foto">
                         </asp:ImageField>
                         <asp:BoundField DataField="nombre" HeaderText="Película" />
                         <asp:BoundField DataField="genero" HeaderText="Género" />
                         <asp:BoundField DataField="id_factura" HeaderText="Número de factura" />
-                        <asp:BoundField DataField="id_reservacion" HeaderText="Cantidad de sillas" />
                         <asp:BoundField DataField="tipo_sala" HeaderText="Sala" />
                         <asp:BoundField DataField="fecha" HeaderText="Fecha" />
                         <asp:TemplateField HeaderText = "Valoración" >

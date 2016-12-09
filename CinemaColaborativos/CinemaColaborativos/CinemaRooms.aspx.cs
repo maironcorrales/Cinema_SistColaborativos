@@ -15,7 +15,7 @@ namespace CinemaColaborativos
             {
 
 
-                salas = p.GetAllTheaters();
+               // salas = p.GetAllTheaters();
 
             }
 
@@ -33,24 +33,24 @@ namespace CinemaColaborativos
             // Sala.id_sala = numeroAsientos.ToString;
 
 
-            if (CB.createCinema(roomType.Value, Convert.ToInt32(idSala.Value)))
-            {
-                message.InnerText = "Nuevo sala creado con éxito";
-                Sala.tipo_sala = roomType.Value;
-                Sala.id_sala = Convert.ToInt32(idSala.Value);
+            //if (CB.createCinema(roomType.Value, Convert.ToInt32(idSala.Value)))
+            //{
+            //    message.InnerText = "Nuevo sala creado con éxito";
+            //    Sala.tipo_sala = roomType.Value;
+            //    Sala.id_sala = Convert.ToInt32(idSala.Value);
 
-            }
-            else
-            {
-                message.InnerText = "Fallo al crear nueva sala. Por favor intentelo más tarde. Si el problema persíste contacte al Web Master";
-
-
+            //}
+            //else
+            //{
+            //    message.InnerText = "Fallo al crear nueva sala. Por favor intentelo más tarde. Si el problema persíste contacte al Web Master";
 
 
-                // CB.createCinema(Sala.Equals != null) =
-                //message.InnerText = "Nueva sala creado con éxito";
-                //ModalPopupExtender1.Show();
-            }
+
+
+            //    // CB.createCinema(Sala.Equals != null) =
+            //    //message.InnerText = "Nueva sala creado con éxito";
+            //    //ModalPopupExtender1.Show();
+            //}
         }
     }
 }

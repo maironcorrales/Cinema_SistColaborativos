@@ -256,6 +256,34 @@ u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
             }
 
         }
+        //Método que devuelve las películas por usuario
+        public DataTable consultaPeliculaPorUsuario(int idUsuario)
+        {
+
+            DataTable dt;
+           
+                var resultado = (from pr in dbContex.proyeccion
+                                 join
+      p in dbContex.pelicula on pr.pelicula_id_pelicula equals p.id_pelicula
+                                 join
+r in dbContex.reservacion on pr.id_proyeccion equals r.proyeccion_id_proyeccion
+                                 join
+fa in dbContex.factura on r.id_reservacion equals fa.reservacion_id_reservacion
+                                 join
+rs in dbContex.reservacion_has_silla on r.id_reservacion equals rs.reservacion_id_reservacion
+                                 join
+s in dbContex.sala on pr.sala_id_sala equals s.id_sala
+                                 join
+si in dbContex.silla on rs.silla_id_silla equals si.id_silla
+                                 join
+u in dbContex.usuario on r.usuario_id_usuario equals u.id_usuario
+                                 where p.id_pelicula == r.proyeccion_pelicula_id_pelicula && s.id_sala == si.sala_id_sala && fa.reservacion_usuario_id_usuario == u.id_usuario && u.id_usuario == idUsuario
+                                 select new { p.genero, p.nombre, r.id_reservacion, r.estado_reservacion, fa.id_factura, fa.fecha, fa.monto, fa.descripcion, s.tipo_sala, s.id_sala, u.correo, p.foto }
+                                ).ToList();
+                dt = LINQToDataTable(resultado);
+                return dt;
+
+            }
 
         public DataTable consultaProyeccion(string nombrePelicula, DateTime fechaDesde, DateTime fechaHasta )
         {
